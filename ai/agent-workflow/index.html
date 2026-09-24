@@ -1858,6 +1858,11 @@ QA → Code review (→ security review when relevant)
    ▼
 Human approval (default gate) → merge → CI (ci.yml) → done
 </code></pre>
+<p>In <strong>autopilot mode</strong> (<code>AUTOPILOT == 'on'</code>), issues opened by trusted actors
+skip the per-phase <code>/oc</code> commands: <code>opencode-pipeline.yml</code> drives
+<code>analyze → implement → qa → review</code> and self-dispatches the next phase. The
+human merge gate, <code>status:blocked</code> halting, and <code>/oc stop|continue</code> overrides
+all still apply. See <code>docs/ai/github-agent-commands.md</code>.</p>
 <p>GitHub is the <strong>system of record</strong>. The repository is the <strong>system of
 knowledge</strong> (<code>docs/</code>, decisions, code). OpenCode is the <strong>execution engine</strong>
 and is deliberately transient — a new OpenCode process reconstructs state by

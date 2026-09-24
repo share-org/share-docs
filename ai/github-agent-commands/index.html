@@ -1240,6 +1240,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#autopilot-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autopilot mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1499,6 +1510,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#autopilot-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autopilot mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1675,6 +1697,23 @@ decision, and your command. Your latest explicit instruction wins.</p>
 <li>PRs with a <strong>Summary</strong>, <strong>Closes #N</strong>, <strong>AI Execution</strong> table, and
   <strong>Review status</strong>.</li>
 <li>CI checks running <code>mvn verify</code>.</li>
+</ul>
+<h2 id="autopilot-mode">Autopilot mode<a class="headerlink" href="#autopilot-mode" title="Permanent link">&para;</a></h2>
+<p>When the repository variable <code>AUTOPILOT == 'on'</code>, issues opened by trusted
+actors (in <code>OC_TRUSTED_ACTORS</code>) run the full chain without per-phase <code>/oc</code>
+commands — the <code>opencode-pipeline.yml</code> workflow self-dispatches each phase:</p>
+<pre><code class="language-text">issue opened -&gt; analyze (+brainstorm+plan) -&gt; implement -&gt; qa -&gt; review+security
+                     -&gt; ready for human merge (you merge)
+</code></pre>
+<ul>
+<li>Each phase posts a status comment and advances the <code>status:*</code> labels.</li>
+<li><code>status:blocked</code> (or <code>/oc stop</code>) halts the chain; a human comment always
+  overrides.</li>
+<li>You still merge the PR — the agent team never merges by itself.</li>
+<li>Manual activation: <code>gh variable set AUTOPILOT --body on -R share-org/share</code>
+  (or the repo Settings → Secrets and variables → Variables UI).</li>
+<li>Manual one-phase dispatch (e.g. after a fix): 
+  <code>gh workflow run opencode-pipeline.yml -f issue=&lt;N&gt; -f phase=&lt;phase&gt; -R share-org/share</code>.</li>
 </ul>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
 <ul>
