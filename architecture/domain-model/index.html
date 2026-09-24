@@ -8,29 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://share-org.github.io/share-docs/">
+        <link rel="canonical" href="https://share-org.github.io/share-docs/architecture/domain-model/">
       
       
+        <link rel="prev" href="../architecture/">
       
-        <link rel="next" href="ai/brainstorms/">
+      
+        <link rel="next" href="../security/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>SharedHousehold Docs & Reports</title>
+        <title>Domain model - SharedHousehold Docs & Reports</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sharedhousehold-docs-reports" class="md-skip">
+        <a href="#domain-model" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="SharedHousehold Docs &amp; Reports" class="md-header__button md-logo" aria-label="SharedHousehold Docs & Reports" data-md-component="logo">
+    <a href="../.." title="SharedHousehold Docs &amp; Reports" class="md-header__button md-logo" aria-label="SharedHousehold Docs & Reports" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Domain model
             
           </span>
         </div>
@@ -188,7 +190,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="SharedHousehold Docs &amp; Reports" class="md-nav__button md-logo" aria-label="SharedHousehold Docs & Reports" data-md-component="logo">
+    <a href="../.." title="SharedHousehold Docs &amp; Reports" class="md-nav__button md-logo" aria-label="SharedHousehold Docs & Reports" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -203,37 +205,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -249,48 +224,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#latest-reports" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Latest reports
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#republishing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Republishing
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -354,7 +287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai/brainstorms/" class="md-nav__link">
+      <a href="../../ai/brainstorms/" class="md-nav__link">
         
   
   
@@ -382,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai/brainstorms/BR-001-agent-permission-architecture/" class="md-nav__link">
+      <a href="../../ai/brainstorms/BR-001-agent-permission-architecture/" class="md-nav__link">
         
   
   
@@ -410,7 +343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai/brainstorms/BR-002-expense-shares/" class="md-nav__link">
+      <a href="../../ai/brainstorms/BR-002-expense-shares/" class="md-nav__link">
         
   
   
@@ -487,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/decisions/ADR-001-agent-permission-restrictions/" class="md-nav__link">
+      <a href="../decisions/ADR-001-agent-permission-restrictions/" class="md-nav__link">
         
   
   
@@ -515,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/decisions/ADR-000-template/" class="md-nav__link">
+      <a href="../decisions/ADR-000-template/" class="md-nav__link">
         
   
   
@@ -555,8 +488,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -567,11 +502,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -592,7 +527,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -610,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/architecture/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -635,10 +570,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="architecture/domain-model/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain model
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -654,6 +616,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expense-conceptual-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expense conceptual model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-domain-invariants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial domain invariants
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -666,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   
@@ -753,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="product/vision/" class="md-nav__link">
+      <a href="../../product/vision/" class="md-nav__link">
         
   
   
@@ -781,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="product/mvp/" class="md-nav__link">
+      <a href="../../product/mvp/" class="md-nav__link">
         
   
   
@@ -809,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="product/roadmap/" class="md-nav__link">
+      <a href="../../product/roadmap/" class="md-nav__link">
         
   
   
@@ -837,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="product/personas/" class="md-nav__link">
+      <a href="../../product/personas/" class="md-nav__link">
         
   
   
@@ -924,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="development/workflow/" class="md-nav__link">
+      <a href="../../development/workflow/" class="md-nav__link">
         
   
   
@@ -952,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="development/definition-of-ready/" class="md-nav__link">
+      <a href="../../development/definition-of-ready/" class="md-nav__link">
         
   
   
@@ -980,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="development/definition-of-done/" class="md-nav__link">
+      <a href="../../development/definition-of-done/" class="md-nav__link">
         
   
   
@@ -1008,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="development/agent-protocol/" class="md-nav__link">
+      <a href="../../development/agent-protocol/" class="md-nav__link">
         
   
   
@@ -1036,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="development/example-feature/" class="md-nav__link">
+      <a href="../../development/example-feature/" class="md-nav__link">
         
   
   
@@ -1064,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="development/docs-publishing/" class="md-nav__link">
+      <a href="../../development/docs-publishing/" class="md-nav__link">
         
   
   
@@ -1151,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai/agent-workflow/" class="md-nav__link">
+      <a href="../../ai/agent-workflow/" class="md-nav__link">
         
   
   
@@ -1179,7 +1216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai/github-agent-commands/" class="md-nav__link">
+      <a href="../../ai/github-agent-commands/" class="md-nav__link">
         
   
   
@@ -1207,7 +1244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai/agent-strategy/" class="md-nav__link">
+      <a href="../../ai/agent-strategy/" class="md-nav__link">
         
   
   
@@ -1235,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai/model-strategy/" class="md-nav__link">
+      <a href="../../ai/model-strategy/" class="md-nav__link">
         
   
   
@@ -1263,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai/context-management/" class="md-nav__link">
+      <a href="../../ai/context-management/" class="md-nav__link">
         
   
   
@@ -1291,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai/mcp-strategy/" class="md-nav__link">
+      <a href="../../ai/mcp-strategy/" class="md-nav__link">
         
   
   
@@ -1319,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai/runs/" class="md-nav__link">
+      <a href="../../ai/runs/" class="md-nav__link">
         
   
   
@@ -1374,10 +1411,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#latest-reports" class="md-nav__link">
+  <a href="#concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Latest reports
+        Concepts
       
     </span>
   </a>
@@ -1385,10 +1422,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#republishing" class="md-nav__link">
+  <a href="#core-relationships" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Republishing
+        Core relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expense-conceptual-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expense conceptual model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-domain-invariants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial domain invariants
       
     </span>
   </a>
@@ -1412,24 +1482,89 @@
 
 
 
-<h1 id="sharedhousehold-docs-reports">SharedHousehold Docs &amp; Reports<a class="headerlink" href="#sharedhousehold-docs-reports" title="Permanent link">&para;</a></h1>
-<p>The public site for SharedHousehold documentation, decisions, and agent reports.</p>
-<ul>
-<li><strong>Source of truth:</strong> the private repository <code>share-org/share</code> (<code>docs/</code>)</li>
-<li><strong>Site:</strong> this site is built with <a href="https://squidfunk.github.io/mkdocs-material/">MkDocs Material</a>
-  and published automatically from the repository's <code>docs/</code> directory.</li>
-</ul>
-<h2 id="latest-reports">Latest reports<a class="headerlink" href="#latest-reports" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><a href="ai/brainstorms/BR-002-expense-shares/">BR-002 — Expense shares (EXP-105) decision</a></strong>
-  Domain-first allocation engine with on-demand balances.</li>
-<li><strong><a href="ai/brainstorms/BR-001-agent-permission-architecture/">BR-001 — Agent permission architecture</a></strong></li>
-<li><strong><a href="architecture/decisions/ADR-001-agent-permission-restrictions/">ADR-001 — Agent permission restrictions</a></strong></li>
-</ul>
-<h2 id="republishing">Republishing<a class="headerlink" href="#republishing" title="Permanent link">&para;</a></h2>
-<p>The site republishes automatically when docs change on <code>main</code>. To force a
-republish, run the <code>docs-publish</code> workflow from the Actions tab of
-<code>share-org/share</code> (see <code>docs/development/docs-publishing.md</code>).</p>
+<h1 id="domain-model">Domain model<a class="headerlink" href="#domain-model" title="Permanent link">&para;</a></h1>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">Household
+Member
+Expense
+Money
+Allocation
+Balance
+Settlement
+RecurringExpense
+Product
+ProductShare
+ShoppingList
+ShoppingListItem
+</code></pre>
+<p>For the MVP only the first seven are mandatory for implementation:
+Household, Member, Expense, Money, Allocation, Balance, Settlement.</p>
+<h2 id="core-relationships">Core relationships<a class="headerlink" href="#core-relationships" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">Household
+ ├── Members
+ ├── Expenses
+ │    ├── payer
+ │    ├── participants
+ │    ├── allocations
+ │    └── settlement state
+ ├── Balances
+ └── Settlements
+</code></pre>
+<p>Later:</p>
+<pre><code class="language-text">Household
+ ├── RecurringExpenses
+ ├── Products
+ └── ShoppingLists
+</code></pre>
+<h2 id="expense-conceptual-model">Expense conceptual model<a class="headerlink" href="#expense-conceptual-model" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">Expense
+ ├── id
+ ├── householdId
+ ├── payer
+ ├── total
+ ├── currency
+ ├── description
+ ├── occurredAt
+ ├── splitMethod
+ ├── allocations
+ ├── status
+ └── audit information
+</code></pre>
+<p>Possible split methods:</p>
+<pre><code class="language-text">EQUAL
+PERCENTAGE
+SHARES
+CUSTOM
+</code></pre>
+<p>Not every split method must be implemented immediately. The MVP supports
+EQUAL and CUSTOM only.</p>
+<h2 id="working-example">Working example<a class="headerlink" href="#working-example" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">Alice pays €90 for groceries.
+
+Alice share   €30
+Bob share     €30
+Charlie share €30
+
+Alice paid €90 and owes €30 =&gt; +€60 net
+Bob owes €30                =&gt; -€30 net
+Charlie owes €30            =&gt; -€30 net
+</code></pre>
+<p>Keep the five concepts distinct: who paid, who participated, who owes, how the
+amount was allocated, and how a debt was settled.</p>
+<h2 id="initial-domain-invariants">Initial domain invariants<a class="headerlink" href="#initial-domain-invariants" title="Permanent link">&para;</a></h2>
+<p>Initial rules — subject to explicit refinement, never silently changed:</p>
+<ol>
+<li>An expense belongs to exactly one household.</li>
+<li>The payer must be a member of the household.</li>
+<li>Participants must be members of the same household.</li>
+<li>Allocations cannot be negative.</li>
+<li>Total allocation must equal the expense total, subject to a deterministic rounding policy.</li>
+<li>Currency must be explicit.</li>
+<li>Financial calculations must be deterministic.</li>
+<li>A member must not access another household's private financial data merely by changing an identifier in a request.</li>
+<li>Settlement is separate from the original expense.</li>
+<li>Editing an expense must preserve a clear audit/history strategy once that functionality is implemented.</li>
+</ol>
 
 
 
@@ -1485,10 +1620,10 @@ republish, run the <code>docs-publish</code> workflow from the Actions tab of
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.top", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

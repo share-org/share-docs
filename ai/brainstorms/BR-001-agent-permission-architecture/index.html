@@ -1,0 +1,2240 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://share-org.github.io/share-docs/ai/brainstorms/BR-001-agent-permission-architecture/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../BR-002-expense-shares/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Agent permission architecture (BR-001) - SharedHousehold Docs & Reports</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#brainstorming-report" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SharedHousehold Docs &amp; Reports" class="md-header__button md-logo" aria-label="SharedHousehold Docs & Reports" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SharedHousehold Docs & Reports
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Agent permission architecture (BR-001)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SharedHousehold Docs &amp; Reports" class="md-nav__button md-logo" aria-label="SharedHousehold Docs & Reports" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SharedHousehold Docs & Reports
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisions & Reports
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Decisions & Reports
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brainstorm index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent permission architecture (BR-001)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent permission architecture (BR-001)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unknowns-assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unknowns / Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proposals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proposals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-security-reviewer-strict-path-scoping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A: Security-Reviewer (Strict Path Scoping)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-backend-implementer-broad-permissive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: Backend-Implementer (Broad Permissive)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-c-qa-engineer-file-type-patterns-test-focused" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option C: QA-Engineer (File-Type Patterns + Test-Focused)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-d-code-reviewer-pattern-consistency-defense-in-depth-selected-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option D: Code-Reviewer (Pattern Consistency + Defense-in-Depth) ← SELECTED BASE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concrete-permission-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concrete Permission Blocks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concrete Permission Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qa-engineermd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        qa-engineer.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-implementermd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        backend-implementer.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-implementermd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        frontend-implementer.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade-offs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejected-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected Alternatives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Follow-up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidence
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BR-002-expense-shares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expense shares, EXP-105 (BR-002)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Decision Records
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture Decision Records
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/decisions/ADR-001-agent-permission-restrictions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-001 agent permission restrictions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/decisions/ADR-000-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/mvp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/personas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/definition-of-ready/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of ready
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/definition-of-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of done
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/agent-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/example-feature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example feature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/docs-publishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docs publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI & Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI & Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github-agent-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub agent commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mcp-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Run registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unknowns-assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unknowns / Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proposals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proposals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-security-reviewer-strict-path-scoping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A: Security-Reviewer (Strict Path Scoping)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-backend-implementer-broad-permissive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: Backend-Implementer (Broad Permissive)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-c-qa-engineer-file-type-patterns-test-focused" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option C: QA-Engineer (File-Type Patterns + Test-Focused)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-d-code-reviewer-pattern-consistency-defense-in-depth-selected-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option D: Code-Reviewer (Pattern Consistency + Defense-in-Depth) ← SELECTED BASE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concrete-permission-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concrete Permission Blocks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concrete Permission Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qa-engineermd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        qa-engineer.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-implementermd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        backend-implementer.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-implementermd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        frontend-implementer.md
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade-offs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rejected-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rejected Alternatives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Follow-up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidence
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="brainstorming-report">Brainstorming Report<a class="headerlink" href="#brainstorming-report" title="Permanent link">&para;</a></h1>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<p>Issue: #5 (https://github.com/share-org/share/issues/5)
+Date: 2026-09-21
+Participants: security-reviewer, backend-implementer, qa-engineer, code-reviewer
+Status: DECIDED</p>
+<h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
+<p>The OpenCode agent permission architecture has two critical inconsistencies identified in the baseline code review (issue #2):</p>
+<ul>
+<li><strong>C1</strong>: .opencode/agents/qa-engineer.md has unrestricted <code>bash: allow</code> — the most dangerous permission in the roster, inconsistent with every other agent (orchestrator, code-reviewer, security-reviewer use <code>git *</code>: allow, <code>*</code>: deny).</li>
+<li><strong>C2</strong>: .opencode/agents/backend-implementer.md and .opencode/agents/frontend-implementer.md have NO <code>permission:</code> block at all — the two write-capable implementation agents are the least constrained and least documented.</li>
+</ul>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<ul>
+<li>11 agents total: 1 primary (orchestrator) + 10 subagents</li>
+<li>8 agents already have proper restrictive permissions following a consistent pattern</li>
+<li>3 agents are problematic (qa-engineer, backend-implementer, frontend-implementer)</li>
+<li>Repository is a modular monolith with mandatory household isolation (AGENTS.md)</li>
+<li>Agents never merge production code automatically</li>
+<li>AGENTS.md security rules: "Never give database write access to unknown/untrusted clients", "Household isolation is mandatory"</li>
+</ul>
+<h2 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Must follow least-privilege principle</li>
+<li>Must be consistent across the roster (follow orchestrator/code-reviewer/security-reviewer pattern)</li>
+<li>Must not break agent functionality (implementers need to write code, QA needs to run tests)</li>
+<li>Fix must be minimal and follow existing patterns</li>
+<li>Valid permission keys per config schema: read, edit, write, glob, grep, list, bash, task, external_directory, todowrite, question, webfetch, websearch, lsp, doom_loop, skill</li>
+</ul>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Functional Needs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backend-implementer</td>
+<td>Read/edit/write Java/Spring files, Maven config, run <code>mvn</code> commands, read database migrations</td>
+</tr>
+<tr>
+<td>frontend-implementer</td>
+<td>Read/edit/write React/TypeScript files in <code>frontend/</code>, run <code>npm</code>/<code>npx</code> commands</td>
+</tr>
+<tr>
+<td>qa-engineer</td>
+<td>Run tests (Maven, npm), read test results, inspect code — NO write access needed</td>
+</tr>
+</tbody>
+</table>
+<h2 id="unknowns-assumptions">Unknowns / Assumptions<a class="headerlink" href="#unknowns-assumptions" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Assumption</strong>: Implementers don't need arbitrary shell; only standard build/test commands (<code>mvn *</code>, <code>npm *</code>, <code>npx *</code>)</li>
+<li><strong>Assumption</strong>: <code>task</code> tool not needed (implementers don't delegate in current workflow)</li>
+<li><strong>Assumption</strong>: <code>webfetch</code>/<code>websearch</code> not needed for any of these three agents</li>
+<li><strong>Unknown</strong>: Whether backend may occasionally need to edit files outside <code>src/**</code> (e.g., Docker, scripts) — mitigated by explicit <code>pom.xml</code> allow and extensible pattern</li>
+</ul>
+<h2 id="proposals">Proposals<a class="headerlink" href="#proposals" title="Permanent link">&para;</a></h2>
+<h3 id="option-a-security-reviewer-strict-path-scoping">Option A: Security-Reviewer (Strict Path Scoping)<a class="headerlink" href="#option-a-security-reviewer-strict-path-scoping" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Narrow path allowlists (<code>src/main/java/**</code>, <code>src/test/java/**</code> for backend; <code>frontend/**</code> for frontend); bash restricted to <code>mvn *</code>/<code>npm *</code>; QA gets test-only bash (<code>mvn test*</code>, <code>npm test*</code>).</p>
+<p><strong>Advantages</strong>: Strongest security posture; minimal attack surface; consistent with review agents.</p>
+<p><strong>Disadvantages</strong>: Backend path too narrow (misses <code>src/main/resources</code>, config, new modules); QA bash too restrictive (blocks <code>mvn clean</code>, <code>mvn dependency:tree</code>).</p>
+<p><strong>Risks</strong>: Legitimate development workflows blocked; frequent permission updates needed.</p>
+<hr />
+<h3 id="option-b-backend-implementer-broad-permissive">Option B: Backend-Implementer (Broad Permissive)<a class="headerlink" href="#option-b-backend-implementer-broad-permissive" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: <code>edit: allow, write: allow</code> for backend; file-type patterns for frontend; bash allowlist for build commands.</p>
+<p><strong>Advantages</strong>: Zero friction for legitimate work; simple.</p>
+<p><strong>Disadvantages</strong>: <strong>Violates least privilege</strong> — <code>edit: allow</code>/<code>write: allow</code> with no path restrictions allows modification of agent configs, security docs, frontend code, any file. Inconsistent with roster.</p>
+<p><strong>Risks</strong>: <strong>HIGH</strong> — contradicts AGENTS.md principle applied to agents; security regression.</p>
+<hr />
+<h3 id="option-c-qa-engineer-file-type-patterns-test-focused">Option C: QA-Engineer (File-Type Patterns + Test-Focused)<a class="headerlink" href="#option-c-qa-engineer-file-type-patterns-test-focused" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: File-type patterns (<code>**/*.java</code>, <code>**/pom.xml</code>, <code>**/*.yml</code>) for backend; QA has zero write; test-scoped bash allowlist.</p>
+<p><strong>Advantages</strong>: QA write-zero is correct; file-type patterns handle new files; test-focused bash.</p>
+<p><strong>Disadvantages</strong>: <code>**/*.yml</code> too broad (allows CI/CD, docker-compose); file-type patterns miss non-standard extensions; no sensitive path denies.</p>
+<p><strong>Risks</strong>: Medium — accidental modification of infrastructure config.</p>
+<hr />
+<h3 id="option-d-code-reviewer-pattern-consistency-defense-in-depth-selected-base">Option D: Code-Reviewer (Pattern Consistency + Defense-in-Depth) ← <strong>SELECTED BASE</strong><a class="headerlink" href="#option-d-code-reviewer-pattern-consistency-defense-in-depth-selected-base" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Exact orchestrator pattern (map + <code>*</code>: deny fallback) for all tools; <code>src/**</code> + <code>pom.xml</code> for backend with explicit denies for <code>.opencode/**</code>, <code>docs/architecture/security.md</code>; <code>frontend/**</code> for frontend with same sensitive denies; QA gets <code>mvn *</code>/<code>npm *</code> bash; explicit denies for <code>webfetch</code>, <code>websearch</code>, <code>task</code>, <code>skill</code>, <code>external_directory</code>.</p>
+<p><strong>Advantages</strong>: Maximum consistency; defense-in-depth; explicit audit trail; follows established convention.</p>
+<p><strong>Disadvantages</strong>: Most verbose; sensitive path deny list maintenance.</p>
+<p><strong>Risks</strong>: Low — denies are additive safety; can extend allowlist if needed.</p>
+<hr />
+<h2 id="discussion">Discussion<a class="headerlink" href="#discussion" title="Permanent link">&para;</a></h2>
+<p><strong>Key disagreements recorded:</strong></p>
+<ol>
+<li>
+<p><strong>Backend file scope</strong>: Security-Reviewer (narrow <code>src/main/java/**</code>) vs Backend-Implementer (broad <code>edit: allow</code>) vs Code-Reviewer (<code>src/**</code> with sensitive denies) vs QA-Engineer (file-type <code>**/*.java</code>). <strong>Resolution</strong>: <code>src/**</code> with sensitive denies balances practicality and safety.</p>
+</li>
+<li>
+<p><strong>QA bash scope</strong>: Security-Reviewer/Code-Reviewer (<code>mvn *</code>, <code>npm *</code>) vs QA-Engineer (test-only <code>mvn test*</code>). <strong>Resolution</strong>: Broader <code>mvn *</code>/<code>npm *</code> — QA needs <code>clean</code>, <code>dependency:tree</code>, etc.</p>
+</li>
+<li>
+<p><strong>Tool exclusions</strong>: Only Code-Reviewer proposed explicit <code>webfetch</code>/<code>websearch</code>/<code>task</code>/<code>skill</code> denies. <strong>Resolution</strong>: Include explicit denies for clarity and audit.</p>
+</li>
+<li>
+<p><strong>Sensitive path denies</strong>: Only Code-Reviewer proposed <code>.opencode/**</code> and <code>docs/architecture/security.md</code> denies. <strong>Resolution</strong>: Include for defense-in-depth.</p>
+</li>
+</ol>
+<hr />
+<h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<p><strong>Selected solution</strong>: Refined Option D (Code-Reviewer base with adjustments from critique).</p>
+<h3 id="concrete-permission-blocks">Concrete Permission Blocks<a class="headerlink" href="#concrete-permission-blocks" title="Permanent link">&para;</a></h3>
+<h4 id="qa-engineermd">qa-engineer.md<a class="headerlink" href="#qa-engineermd" title="Permanent link">&para;</a></h4>
+<pre><code class="language-yaml">permission:
+  edit: deny
+  write: deny
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  bash:
+    &quot;mvn *&quot;: allow
+    &quot;npm *&quot;: allow
+    &quot;*&quot;: deny
+  webfetch: deny
+  websearch: deny
+  task: deny
+  skill: deny
+  external_directory: deny
+</code></pre>
+<h4 id="backend-implementermd">backend-implementer.md<a class="headerlink" href="#backend-implementermd" title="Permanent link">&para;</a></h4>
+<pre><code class="language-yaml">permission:
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  edit:
+    &quot;src/**&quot;: allow
+    &quot;pom.xml&quot;: allow
+    &quot;.opencode/**&quot;: deny
+    &quot;docs/architecture/security.md&quot;: deny
+    &quot;*&quot;: deny
+  write:
+    &quot;src/**&quot;: allow
+    &quot;pom.xml&quot;: allow
+    &quot;.opencode/**&quot;: deny
+    &quot;docs/architecture/security.md&quot;: deny
+    &quot;*&quot;: deny
+  bash:
+    &quot;mvn *&quot;: allow
+    &quot;*&quot;: deny
+  webfetch: deny
+  websearch: deny
+  task: deny
+  skill: deny
+  external_directory: deny
+</code></pre>
+<h4 id="frontend-implementermd">frontend-implementer.md<a class="headerlink" href="#frontend-implementermd" title="Permanent link">&para;</a></h4>
+<pre><code class="language-yaml">permission:
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  edit:
+    &quot;frontend/**&quot;: allow
+    &quot;.opencode/**&quot;: deny
+    &quot;docs/architecture/security.md&quot;: deny
+    &quot;*&quot;: deny
+  write:
+    &quot;frontend/**&quot;: allow
+    &quot;.opencode/**&quot;: deny
+    &quot;docs/architecture/security.md&quot;: deny
+    &quot;*&quot;: deny
+  bash:
+    &quot;npm *&quot;: allow
+    &quot;npx *&quot;: allow
+    &quot;*&quot;: deny
+  webfetch: deny
+  websearch: deny
+  task: deny
+  skill: deny
+  external_directory: deny
+</code></pre>
+<hr />
+<h2 id="why">Why<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Consistency</strong>: Matches the orchestrator/code-reviewer/security-reviewer pattern exactly (map form with allowlist + <code>*</code>: deny fallback).</li>
+<li><strong>Least privilege</strong>: Each agent gets only what it needs; no unrestricted <code>bash</code>, no broad <code>edit: allow</code>.</li>
+<li><strong>Defense-in-depth</strong>: Explicit denies for sensitive paths (agent configs, security docs) prevent accidental/malicious modification.</li>
+<li><strong>Explicit tool denies</strong>: Clarifies that <code>webfetch</code>/<code>websearch</code>/<code>task</code>/<code>skill</code>/<code>external_directory</code> are not needed.</li>
+<li><strong>Practical</strong>: <code>src/**</code> and <code>frontend/**</code> cover legitimate work including new modules/files; <code>mvn *</code>/<code>npm *</code> cover all build/test scenarios.</li>
+</ul>
+<hr />
+<h2 id="trade-offs">Trade-offs<a class="headerlink" href="#trade-offs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Trade-off</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verbosity vs. clarity</td>
+<td>Accept verbosity for clarity and auditability</td>
+</tr>
+<tr>
+<td><code>src/**</code> breadth vs. narrow <code>src/main/java/**</code></td>
+<td><code>src/**</code> preferred (covers resources, test fixtures, new modules); sensitive denies mitigate risk</td>
+</tr>
+<tr>
+<td>Explicit tool denies vs. implicit</td>
+<td>Explicit denies for documentation and audit trail</td>
+</tr>
+<tr>
+<td>Sensitive path deny list maintenance</td>
+<td>Accept maintenance burden for defense-in-depth</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="risks">Risks<a class="headerlink" href="#risks" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Backend may need files outside <code>src/**</code></strong> (Docker, scripts, root config). Mitigation: <code>pom.xml</code> explicitly allowed; rare cases can extend allowlist.</li>
+<li><strong>Build command evolution</strong> (wrapper scripts, new npm commands). Mitigation: <code>mvn *</code> covers wrapper; <code>npm *</code> covers all npm.</li>
+<li><strong>QA may need non-Maven/npm commands</strong> (docker, psql). Mitigation: Not in current scope; extend if needed.</li>
+</ol>
+<hr />
+<h2 id="rejected-alternatives">Rejected Alternatives<a class="headerlink" href="#rejected-alternatives" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Alternative</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backend-Implementer's <code>edit: allow, write: allow</code></td>
+<td>Violates least privilege; inconsistent; security risk</td>
+</tr>
+<tr>
+<td>Security-Reviewer's narrow <code>src/main/java/**</code></td>
+<td>Too restrictive; breaks legitimate work (resources, test fixtures)</td>
+</tr>
+<tr>
+<td>QA-Engineer's test-only bash (<code>mvn test*</code>)</td>
+<td>Too restrictive; QA needs <code>mvn clean</code>, <code>mvn dependency:tree</code></td>
+</tr>
+<tr>
+<td>Omitting explicit <code>webfetch</code>/<code>websearch</code>/<code>task</code> denies</td>
+<td>Implicit deny per schema, but explicit is clearer for audit</td>
+</tr>
+<tr>
+<td>File-type patterns (<code>**/*.java</code>)</td>
+<td>Misses non-standard extensions; directory patterns more maintainable</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="follow-up">Follow-up<a class="headerlink" href="#follow-up" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Apply the three permission blocks to their respective agent files</li>
+<li>Verify agents can still perform their duties (run a test task for each)</li>
+<li>Consider whether <code>architect</code> and <code>product-planner</code> should get <code>bash: { "git *": allow, "*": deny }</code> for consistency (currently they have no bash at all)</li>
+</ul>
+<hr />
+<h2 id="confidence">Confidence<a class="headerlink" href="#confidence" title="Permanent link">&para;</a></h2>
+<p><strong>HIGH</strong> — The solution follows the established pattern in the repository, applies least privilege consistently, addresses both C1 and C2 findings, and the trade-offs are well-understood. The only uncertainty is whether any edge-case file paths are missed, but the pattern allows easy extension.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "search.suggest", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
