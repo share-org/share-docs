@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://share-org.github.io/share-docs/ai/agent-workflow/">
+        <link rel="canonical" href="https://share-org.github.io/share-docs/ai/plans/">
       
       
-        <link rel="prev" href="../../development/docs-publishing/">
-      
-      
-        <link rel="next" href="../github-agent-commands/">
       
       
         
@@ -25,7 +21,7 @@
     
     
       
-        <title>Agent workflow - SharedHousehold Docs & Reports</title>
+        <title>Implementation Plans - SharedHousehold Docs & Reports</title>
       
     
     
@@ -74,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#agent-workflow-reading-the-repository-from-github" class="md-skip">
+        <a href="#implementation-plans" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Agent workflow
+              Implementation Plans
             
           </span>
         </div>
@@ -1029,8 +1025,6 @@
       
   
   
-    
-  
   
   
     
@@ -1043,11 +1037,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -1068,7 +1062,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1083,37 +1077,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Agent workflow
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../agent-workflow/" class="md-nav__link">
         
   
   
@@ -1129,258 +1096,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-pipeline-at-a-glance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The pipeline at a glance
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-an-issue-moves-through-the-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How an Issue moves through the system
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How an Issue moves through the system">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-issue-created-triage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Issue created → triage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-command" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Command
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Implementation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-qa-and-review" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. QA and review
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-human-approval" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Human approval
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#labels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Labels
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Labels">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#status-the-issue-state-machine" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Status (the issue state machine)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Type
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agent-logical-identity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Agent (logical identity)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#status-markers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Status markers
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-ids-and-identity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run IDs and identity
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-audit-chain-traceability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The audit chain (traceability)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#github-project-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitHub Project (fields)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#human-overrides" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Human overrides
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#loop-protection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Loop protection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recovery" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recovery
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#required-recommended-github-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Required / recommended GitHub setup
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1588,10 +1303,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-pipeline-at-a-glance" class="md-nav__link">
+  <a href="#file-format" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The pipeline at a glance
+        File format
       
     </span>
   </a>
@@ -1599,220 +1314,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-an-issue-moves-through-the-system" class="md-nav__link">
+  <a href="#workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How an Issue moves through the system
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How an Issue moves through the system">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-issue-created-triage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Issue created → triage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-command" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Command
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Implementation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-qa-and-review" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. QA and review
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-human-approval" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Human approval
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#labels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Labels
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Labels">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#status-the-issue-state-machine" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Status (the issue state machine)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Type
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#agent-logical-identity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Agent (logical identity)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#status-markers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Status markers
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-ids-and-identity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run IDs and identity
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-audit-chain-traceability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The audit chain (traceability)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#github-project-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitHub Project (fields)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#human-overrides" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Human overrides
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#loop-protection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Loop protection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recovery" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recovery
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#required-recommended-github-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Required / recommended GitHub setup
+        Workflow
       
     </span>
   </a>
@@ -1836,249 +1341,34 @@
 
 
 
-<h1 id="agent-workflow-reading-the-repository-from-github">Agent Workflow — reading the repository from GitHub<a class="headerlink" href="#agent-workflow-reading-the-repository-from-github" title="Permanent link">&para;</a></h1>
-<p>This document explains how the SharedHousehold agent team operates and how a
-human owner runs the project from GitHub Issues and Pull Requests, with OpenCode
-executing behind the scenes in GitHub Actions.</p>
-<h2 id="the-pipeline-at-a-glance">The pipeline at a glance<a class="headerlink" href="#the-pipeline-at-a-glance" title="Permanent link">&para;</a></h2>
-<pre><code class="language-text">Human (GitHub)
-   │  creates / edits / comments an Issue
-   ▼
-GitHub Event / orchestration workflow
-   │  (opencode-command.yml, opencode-issue-triage.yml, opencode-pr-review.yml,
-   │   opencode-agent-status.yml)
-   ▼
-OpenCode Orchestrator (primary agent, runs in a GitHub Actions runner)
-   │  task tool → product-planner / brainstormer / architect / implementers /
-   │              qa / reviewers / security / documentation / researcher
-   ▼
-Implementation → branch → commits → Pull Request
-   ▼
-QA → Code review (→ security review when relevant)
-   ▼
-Human approval (default gate) → merge → CI (ci.yml) → done
+<h1 id="implementation-plans">Implementation Plans<a class="headerlink" href="#implementation-plans" title="Permanent link">&para;</a></h1>
+<p>Plans produced by <code>/oc plan</code> live here as durable, executable specifications
+that <code>/oc implement</code> follows.</p>
+<h2 id="file-format">File format<a class="headerlink" href="#file-format" title="Permanent link">&para;</a></h2>
+<p><code>PLAN-&lt;Issue&gt;-&lt;topic&gt;.md</code>:</p>
+<pre><code class="language-text">Issue: #N
+Run: run-YYYY-MM-DD-NNNN
+Brainstorm: BR-NNN        (optional)
+Agent: architect
+Agent-Run: run-...
+
+## Affected areas
+## Domain changes
+## Persistence / migrations
+## API changes
+## Ordered implementation steps
+## Tests
+## Risks
+## Open questions
 </code></pre>
-<p>GitHub is the <strong>system of record</strong>. The repository is the <strong>system of
-knowledge</strong> (<code>docs/</code>, decisions, code). OpenCode is the <strong>execution engine</strong>
-and is deliberately transient — a new OpenCode process reconstructs state by
-reading GitHub and the repository.</p>
-<h2 id="how-an-issue-moves-through-the-system">How an Issue moves through the system<a class="headerlink" href="#how-an-issue-moves-through-the-system" title="Permanent link">&para;</a></h2>
-<h3 id="1-issue-created-triage">1. Issue created → triage<a class="headerlink" href="#1-issue-created-triage" title="Permanent link">&para;</a></h3>
-<p><code>opencode-issue-triage.yml</code> runs on <code>issues: opened</code>. The orchestrator:</p>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
 <ol>
-<li>reads the issue and relevant docs,</li>
-<li>decides whether a design decision is required,</li>
-<li>brainstorms if needed (writes <code>docs/ai/brainstorms/BR-NNN-*.md</code>, posts a
-   concise summary on the Issue),</li>
-<li>marks the Issue <code>status:ready</code> (or <code>status:discovery</code> + open questions).</li>
+<li><code>/oc plan</code> writes the plan here on a <code>plan/&lt;issue&gt;-&lt;topic&gt;</code> branch and
+   opens a PR (never merges; the human approves).</li>
+<li><code>/oc implement</code> executes the plan for that issue.</li>
+<li>A plan's scope is not changed silently during implementation; a scope
+   change is recorded before implementation continues.</li>
 </ol>
-<p>Implementation is <strong>never</strong> started automatically. It requires an explicit
-<code>/oc implement</code> from a trusted human.</p>
-<h3 id="2-command">2. Command<a class="headerlink" href="#2-command" title="Permanent link">&para;</a></h3>
-<p>A human comments <code>/oc &lt;command&gt;</code> (optionally <code>/oc @agent &lt;command&gt;</code>). The
-<code>opencode-command.yml</code> workflow validates the actor, assigns a run ID, posts a
-start/complete status on the Issue, and runs OpenCode.</p>
-<h3 id="3-implementation">3. Implementation<a class="headerlink" href="#3-implementation" title="Permanent link">&para;</a></h3>
-<p><code>/oc implement</code> → the orchestrator selects the implementation agent, creates a
-branch (<code>feature/EXP-105-*</code> or <code>agent/&lt;topic&gt;-&lt;agent&gt;</code>), commits with Git
-trailers (<code>Agent</code>, <code>Agent-Run</code>, <code>Issue</code>), opens a PR, and posts the PR link.
-When needed, <code>/oc plan</code> runs first: it writes <code>docs/ai/plans/PLAN-*.md</code> on a
-<code>plan/&lt;issue&gt;-*</code> branch and opens a PR that <code>/oc implement</code> then executes.
-Human approval remains the default merge gate.</p>
-<h3 id="4-qa-and-review">4. QA and review<a class="headerlink" href="#4-qa-and-review" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>opencode-pr-review.yml</code> runs a read-only review automatically for
-  human-authored PRs (skips bot-authored PRs to prevent self-review).</li>
-<li><code>opencode-pr-review.yml</code> and <code>/oc qa</code> / <code>/oc review</code> run the QA and review
-  agents, which post PASS/FAIL evidence on the PR/Issue.</li>
-</ul>
-<h3 id="5-human-approval">5. Human approval<a class="headerlink" href="#5-human-approval" title="Permanent link">&para;</a></h3>
-<p>The human reviews the PR in GitHub, asks for fixes via comments or <code>/oc</code>, and
-merges. CI (<code>ci.yml</code>, <code>mvn verify</code>) runs on every push/PR.</p>
-<h2 id="labels">Labels<a class="headerlink" href="#labels" title="Permanent link">&para;</a></h2>
-<h3 id="status-the-issue-state-machine">Status (the issue state machine)<a class="headerlink" href="#status-the-issue-state-machine" title="Permanent link">&para;</a></h3>
-<pre><code class="language-text">BACKLOG → DISCOVERY → READY → IN_PROGRESS → REVIEW → QA → DONE
-                                ↘ BLOCKED
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>Label</th>
-<th>Meaning</th>
-<th>Applied when</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>status:backlog</code></td>
-<td>created, not started</td>
-<td>created</td>
-</tr>
-<tr>
-<td><code>status:discovery</code></td>
-<td>analyzing/brainstorming/planning</td>
-<td>triage, <code>/oc analyze</code>, <code>/oc brainstorm</code>, <code>/oc plan</code>, <code>/oc decide</code></td>
-</tr>
-<tr>
-<td><code>status:ready</code></td>
-<td>specified, implementation can start</td>
-<td>triage completes with a sufficient spec</td>
-</tr>
-<tr>
-<td><code>status:in-progress</code></td>
-<td>implementation running</td>
-<td><code>/oc implement</code></td>
-</tr>
-<tr>
-<td><code>status:review</code></td>
-<td>pending code review</td>
-<td><code>/oc review</code>, automatic PR review</td>
-</tr>
-<tr>
-<td><code>status:qa</code></td>
-<td>waiting for QA verification</td>
-<td><code>/oc qa</code></td>
-</tr>
-<tr>
-<td><code>status:blocked</code></td>
-<td>waiting on a human or external dependency</td>
-<td><code>/oc stop</code>, a BLOCKED report</td>
-</tr>
-<tr>
-<td><code>status:done</code></td>
-<td>complete and merged</td>
-<td>merged</td>
-</tr>
-</tbody>
-</table>
-<h3 id="type">Type<a class="headerlink" href="#type" title="Permanent link">&para;</a></h3>
-<p><code>type:feature</code>, <code>type:bug</code>, <code>type:architecture</code>, <code>type:technical-debt</code>,
-<code>type:brainstorm</code>.</p>
-<h3 id="priority">Priority<a class="headerlink" href="#priority" title="Permanent link">&para;</a></h3>
-<p><code>priority:p0</code> (blocker) … <code>priority:p3</code> (lowest).</p>
-<h3 id="agent-logical-identity">Agent (logical identity)<a class="headerlink" href="#agent-logical-identity" title="Permanent link">&para;</a></h3>
-<p><code>agent:orchestrator</code>, <code>agent:product</code>, <code>agent:architect</code>, <code>agent:backend</code>,
-<code>agent:frontend</code>, <code>agent:qa</code>, <code>agent:security</code>, <code>agent:review</code>,
-<code>agent:documentation</code>. These record which logical agent is/was active — there is
-one automation identity, not fake per-agent users.</p>
-<h2 id="status-markers">Status markers<a class="headerlink" href="#status-markers" title="Permanent link">&para;</a></h2>
-<p>Meaningful state changes are posted as standardized comments:</p>
-<pre><code class="language-text">🤖 STARTED | 🤖 ANALYZING | 🤖 BRAINSTORMING | 🤖 PLANNING | 🤖 IMPLEMENTING
-🤖 TESTING | 🤖 REVIEWING | 🤖 BLOCKED | 🤖 COMPLETED
-</code></pre>
-<p>These are concise; durable analysis lives in <code>docs/ai/brainstorms/</code> and PRs.</p>
-<h2 id="run-ids-and-identity">Run IDs and identity<a class="headerlink" href="#run-ids-and-identity" title="Permanent link">&para;</a></h2>
-<p>Every execution has a run ID: <code>run-YYYY-MM-DD-NNNN</code>.</p>
-<p>Where to find a run ID:</p>
-<ul>
-<li>in the status comments on the Issue/PR,</li>
-<li>in Git trailers on agent commits,</li>
-<li>in the PR's <strong>AI Execution</strong> table,</li>
-<li>in brainstorm/decision reports,</li>
-<li>in workflow logs.</li>
-</ul>
-<p>The run ID ties a human request → Issue → agent → model → branch → commits →
-PR → QA/review → merge. See the audit chain below.</p>
-<h2 id="the-audit-chain-traceability">The audit chain (traceability)<a class="headerlink" href="#the-audit-chain-traceability" title="Permanent link">&para;</a></h2>
-<p>For any task you should be able to answer:</p>
-<table>
-<thead>
-<tr>
-<th>Question</th>
-<th>Where to look</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Who requested it?</td>
-<td>the issue creator / command comment author (<code>github.actor</code>)</td>
-</tr>
-<tr>
-<td>Which Issue?</td>
-<td><code>Issue: #N</code> trailers, <code>Closes #N</code></td>
-</tr>
-<tr>
-<td>Which agent?</td>
-<td><code>Agent: &lt;name&gt;</code> trailers/comments, <code>agent:*</code> labels</td>
-</tr>
-<tr>
-<td>Which run?</td>
-<td><code>Agent-Run: run-…</code> trailers, status comments</td>
-</tr>
-<tr>
-<td>Which model?</td>
-<td>the <strong>AI Execution</strong> table on the PR + <code>.github/oc-models.json</code></td>
-</tr>
-<tr>
-<td>Which decision?</td>
-<td><code>docs/ai/brainstorms/BR-NNN-*.md</code> + ADRs</td>
-</tr>
-<tr>
-<td>Which files changed?</td>
-<td>the PR diff</td>
-</tr>
-<tr>
-<td>Which branch / commits?</td>
-<td>the PR</td>
-</tr>
-<tr>
-<td>Which tests?</td>
-<td>CI run + QA comment evidence</td>
-</tr>
-<tr>
-<td>Which reviewers?</td>
-<td>review comments + <code>status:review</code></td>
-</tr>
-<tr>
-<td>Who approved/meged?</td>
-<td>the PR "merged by" info</td>
-</tr>
-</tbody>
-</table>
-<p>Chain shape:</p>
-<pre><code class="language-text">Human → Issue #N → Run ID → Brainstorm report → ADR → Branch → Commit(s)
-      → PR → QA result → Security result → Human approval → Merge
-</code></pre>
-<h2 id="github-project-fields">GitHub Project (fields)<a class="headerlink" href="#github-project-fields" title="Permanent link">&para;</a></h2>
-<p>A GitHub Project v2 can hold status automation. Recommended fields:</p>
-<p><code>Status</code>, <code>Type</code>, <code>Priority</code>, <code>Domain</code>, <code>Agent</code>, <code>Current Run</code>, <code>Milestone</code>,
-<code>Risk</code>, <code>AI Decision</code>.</p>
-<p>Automating these fields requires a token that can write the Project
-(<code>project</code> scope for classic PAT, or a fine-grained token with "Projects"
-read/write) and org/owner setup — that is intentionally NOT embedded in the
-workflows or the repo (no credentials in the repository). Set it up manually
-and connect the <code>Status</code> field to the <code>status:*</code> labels if you want Board
-integration.</p>
-<h2 id="human-overrides">Human overrides<a class="headerlink" href="#human-overrides" title="Permanent link">&para;</a></h2>
-<p>An explicit human comment always overrides an earlier agent decision. Example:</p>
-<pre><code class="language-text">Agent: I selected option B.
-Human: /oc use option A instead
-</code></pre>
-<p>The orchestrator records the override, explains impact, updates the plan, and
-continues with option A.</p>
-<h2 id="loop-protection">Loop protection<a class="headerlink" href="#loop-protection" title="Permanent link">&para;</a></h2>
-<p>Workflows ignore comments/issues authored by bot actors (<code>*[bot]</code>). Moving the
-state forward is always the human's action; agent comments cannot re-trigger
-themselves. PRs created by the agent team use <code>GITHUB_TOKEN</code>, so they do not
-spur new auto-review runs — review is requested explicitly or runs once for
-human-authored PRs.</p>
-<h2 id="recovery">Recovery<a class="headerlink" href="#recovery" title="Permanent link">&para;</a></h2>
-<p>If a workflow fails, a model times out, or a partial implementation exists,
-recover by running <strong>opencode-agent-status</strong> from the Actions tab (or comment
-<code>/oc status</code>): the orchestrator inspects existing branches, PRs, comments, run
-metadata, and CI, then reports current state and the recommended next action
-instead of duplicating work.</p>
-<h2 id="required-recommended-github-setup">Required / recommended GitHub setup<a class="headerlink" href="#required-recommended-github-setup" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Labels: <code>bash scripts/setup-labels.sh</code> (upsert the standardized label set).</li>
-<li>Repository variable <code>OC_TRUSTED_ACTORS</code>: CSV of human accounts allowed to run
-  mutation commands, e.g. <code>oussAbd</code>.</li>
-<li>Secrets (all optional): <code>OPENCODE_API_KEY</code> (OpenCode gateway/team key),
-  provider keys (e.g. <code>ANTHROPIC_API_KEY</code>) if models move off the free gateway.</li>
-<li>GitHub Project v2 fields: see above (manual).</li>
-<li>Branch protection on <code>main</code> (requires a paid plan; convention-only otherwise:
-  agents never merge).</li>
-</ul>
 
 
 
