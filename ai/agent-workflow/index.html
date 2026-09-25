@@ -791,6 +791,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/maquette/maquette/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maquette & prototype feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1284,8 +1312,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prototype-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prototype feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototype-feedback-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prototype feedback loop
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1726,8 +1776,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prototype-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prototype feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prototype-feedback-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prototype feedback loop
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1858,6 +1930,9 @@ QA → Code review (→ security review when relevant)
    ▼
 Human approval (default gate) → merge → CI (ci.yml) → done
 </code></pre>
+<p>A second entry point feeds the same engine: the <strong>prototype feedback loop</strong>
+(maquette annotation layer → <code>prototype-feedback</code> issue → brainstorm panel →
+sub-issues → parallel chains). See "Prototype feedback loop" below.</p>
 <p>In <strong>autopilot mode</strong> (<code>AUTOPILOT == 'on'</code>), issues opened by trusted actors
 skip the per-phase <code>/oc</code> commands: <code>opencode-pipeline.yml</code> drives
 <code>analyze → implement → qa → review</code> and self-dispatches the next phase. The
@@ -1966,6 +2041,102 @@ merges. CI (<code>ci.yml</code>, <code>mvn verify</code>) runs on every push/PR.
 <code>agent:frontend</code>, <code>agent:qa</code>, <code>agent:security</code>, <code>agent:review</code>,
 <code>agent:documentation</code>. These record which logical agent is/was active — there is
 one automation identity, not fake per-agent users.</p>
+<h3 id="prototype-feedback">Prototype feedback<a class="headerlink" href="#prototype-feedback" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Meaning</th>
+<th>Applied when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prototype-feedback</code></td>
+<td>filed from the published maquette's annotation layer</td>
+<td>by the human, through the prefilled issue URL</td>
+</tr>
+<tr>
+<td><code>feedback:parent</code></td>
+<td>a feedback issue already fanned out into sub-issues</td>
+<td>by the intake run</td>
+</tr>
+<tr>
+<td><code>feedback:child</code></td>
+<td>sub-issue derived from a parent feedback issue</td>
+<td>by the intake run</td>
+</tr>
+<tr>
+<td><code>feedback:child-of-&lt;issue&gt;</code></td>
+<td>the parent link, one label per sub-issue</td>
+<td>by the intake run (generated, not in <code>setup-labels.sh</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><code>feedback:child-of-&lt;issue&gt;</code> is what lets the pipeline close a parent without ever
+editing an issue body: after a merge it lists the parent's children and closes the
+parent only when none are open.</p>
+<h2 id="prototype-feedback-loop">Prototype feedback loop<a class="headerlink" href="#prototype-feedback-loop" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">maquette (?annotate=1)  -&gt;  click a component  -&gt;  issue labeled prototype-feedback
+   -&gt;  opencode-prototype-feedback.yml
+        -&gt;  brainstorm panel: designer (UX), product, architect, backend, QA
+        -&gt;  synthesis: BR report + one plan per track
+        -&gt;  sub-issues UX / FRONTEND / BACKEND, label feedback:child-of-&lt;parent&gt;
+   -&gt;  opencode-pipeline.yml, one parallel chain per sub-issue
+   -&gt;  parent feedback issue closes when every child is merged
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Actor</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capture</td>
+<td>human</td>
+<td>static annotation layer in the maquette; pre-fills screen, <code>data-uid</code>, CSS path, prototype URL, viewport</td>
+</tr>
+<tr>
+<td>Intake</td>
+<td><code>brainstormer</code> (delegated by <code>orchestrator</code>)</td>
+<td>panel discussion → <code>BR-NNN-*.md</code> (+ ADR when durable)</td>
+</tr>
+<tr>
+<td>Decomposition</td>
+<td><code>orchestrator</code></td>
+<td>one sub-issue + one <code>PLAN-*.md</code> per affected track; <code>UX</code> → <code>designer</code>, <code>FRONTEND</code> → <code>frontend-implementer</code>, <code>BACKEND</code> → <code>backend-implementer</code></td>
+</tr>
+<tr>
+<td>Execution</td>
+<td>per sub-issue</td>
+<td>the normal <code>implement → qa → review → auto-merge</code> chain, in parallel</td>
+</tr>
+<tr>
+<td>Completion</td>
+<td><code>opencode-pipeline.yml</code></td>
+<td>parent closed automatically when no child is open</td>
+</tr>
+</tbody>
+</table>
+<p>Properties worth knowing:</p>
+<ul>
+<li><strong>Trust gate.</strong> The prototype is public, so only a <code>prototype-feedback</code> issue
+  whose <em>author</em> is in <code>OC_TRUSTED_ACTORS</code> is executed. Anything else is parked
+  as <code>status:backlog</code> with an explanatory comment. The issue body is untrusted
+  input: the intake reads it through the <code>gh</code> JSON API and never interpolates it
+  into a shell command (AGENTS.md, security rules).</li>
+<li><strong>No double handling.</strong> <code>opencode-issue-triage.yml</code> skips issues carrying
+  <code>prototype-feedback</code>; the intake skips issues already carrying
+  <code>feedback:parent</code>. Both gates are label-driven, so the loop cannot re-trigger.</li>
+<li><strong>No design ceremony for nits.</strong> The intake is told to skip the panel and close
+  the parent directly when the feedback is a copy/colour/label tweak.</li>
+<li>The pre-fill records the element <code>data-uid</code>, so a new annotatable component
+  needs a <code>data-uid</code> on its structural element. See
+  <code>docs/product/maquette/maquette.md</code>.</li>
+</ul>
 <h2 id="status-markers">Status markers<a class="headerlink" href="#status-markers" title="Permanent link">&para;</a></h2>
 <p>Meaningful state changes are posted as standardized comments:</p>
 <pre><code class="language-text">🤖 STARTED | 🤖 ANALYZING | 🤖 BRAINSTORMING | 🤖 PLANNING | 🤖 IMPLEMENTING

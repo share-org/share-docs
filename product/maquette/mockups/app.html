@@ -98,16 +98,40 @@
   .tag{font-size:11px;color:var(--muted);margin-top:2px}
   .empty{text-align:center;color:var(--muted);padding:26px 0;font-size:13px}
   footer.note{font-size:11px;color:var(--muted);text-align:center;padding:6px 18px 18px}
+
+  /* ---- prototype annotation layer (only active in ?annotate=1) ---- */
+  body.annotating [data-annot-target]{cursor:crosshair}
+  body.annotating .annot-hover{outline:2px dashed #0f8a5f;outline-offset:2px}
+  body.annotating .annot-picked{outline:2px solid #c2543f;outline-offset:2px}
+  #annot-bar{position:fixed;right:12px;bottom:12px;z-index:90;display:flex;flex-direction:column;
+             align-items:flex-end;gap:8px;font-size:12px;max-width:min(360px,92vw)}
+  #annot-bar button{font:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;
+             color:var(--ink);border-radius:999px;padding:7px 13px;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+  #annot-bar button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  #annot-panel{display:none;width:100%;background:#fff;border:1px solid var(--line);
+             border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.18);padding:12px}
+  #annot-panel.open{display:block}
+  #annot-panel h4{margin:0 0 6px;font-size:13px}
+  #annot-target-id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;
+             color:var(--muted);word-break:break-all;margin-bottom:8px}
+  #annot-panel textarea{width:100%;box-sizing:border-box;min-height:96px;font:inherit;
+             padding:8px;border:1px solid var(--line);border-radius:8px;resize:vertical}
+  #annot-panel .row{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+  #annot-panel .row button{border-radius:8px}
+  #annot-panel .row button.go{background:var(--accent);border-color:var(--accent);color:#fff}
+  #annot-hint{display:none;position:fixed;left:0;right:0;top:0;z-index:89;background:#0f8a5f;
+             color:#fff;text-align:center;padding:6px 12px;font-size:12px}
+  body.annotating #annot-hint{display:block}
 </style>
 </head>
 <body>
 <div id="app">
-  <header>
+  <header data-uid="app/household-header">
     <div class="house">
       <b>Village Villa</b>
       <span>4 members · CHF</span>
     </div>
-    <div class="chips">
+    <div class="chips" data-uid="app/member-chips">
       <span class="chip" style="background:#0f8a5f">You</span>
       <span class="chip" style="background:#4a7bb5">Mina</span>
       <span class="chip" style="background:#c07a2a">Louis</span>
@@ -117,45 +141,45 @@
 
   <main>
     <section class="screen on" id="s-home">
-      <div class="hero">
+      <div class="hero" data-uid="dashboard/balance-hero">
         <h1>September</h1>
         <div class="sub">Shared household, everything explicit.</div>
         <div class="cols">
-          <div class="col"><div class="k">You are owed</div><div class="v owed tnum" id="owed">CHF 0</div></div>
-          <div class="col"><div class="k">You owe</div><div class="v owes tnum" id="owes">CHF 0</div></div>
+          <div class="col" data-uid="dashboard/you-are-owed"><div class="k">You are owed</div><div class="v owed tnum" id="owed">CHF 0</div></div>
+          <div class="col" data-uid="dashboard/you-owe"><div class="k">You owe</div><div class="v owes tnum" id="owes">CHF 0</div></div>
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" data-uid="dashboard/activity-feed">
         <h3>Activity <span class="pill" id="act-count">0</span></h3>
         <div id="activity"></div>
       </div>
 
-      <div class="card">
+      <div class="card" data-uid="dashboard/expense-list">
         <h3>Expenses</h3>
         <div id="exp-list"></div>
-        <button class="btn primary" onclick="openAdd()">＋&nbsp;Add expense</button>
+        <button class="btn primary" data-uid="dashboard/add-expense-cta" onclick="openAdd()">＋&nbsp;Add expense</button>
       </div>
     </section>
 
     <section class="screen" id="s-balances">
-      <div class="card">
+      <div class="card" data-uid="balances/suggested-settlement">
         <h3>Simplified debts <span class="pill">settle with fewest moves</span></h3>
         <div id="settle-list"></div>
-        <button class="btn primary" onclick="recordSettlement()">Confirm suggested settlement</button>
+        <button class="btn primary" data-uid="balances/confirm-settlement" onclick="recordSettlement()">Confirm suggested settlement</button>
       </div>
-      <div class="card">
+      <div class="card" data-uid="balances/member-matrix">
         <h3>Per-member balances</h3>
         <div id="bal-matrix"></div>
       </div>
     </section>
 
     <section class="screen" id="s-members">
-      <div class="card">
+      <div class="card" data-uid="members/roster">
         <h3>Members <span class="pill">self-hosted · private</span></h3>
         <div id="member-list"></div>
       </div>
-      <div class="card">
+      <div class="card" data-uid="members/about">
         <h3>About the household
           <div class="tag" style="margin-top:8px;line-height:1.6">
             Balances are deterministic: every expense records who paid, who
@@ -167,34 +191,34 @@
     </section>
   </main>
 
-  <nav class="bottom">
-    <button class="on" data-s="home">Dashboard</button>
-    <button data-s="balances">Balances</button>
-    <button data-s="members">Members</button>
+  <nav class="bottom" data-uid="app/bottom-nav">
+    <button class="on" data-s="home" data-uid="nav/dashboard">Dashboard</button>
+    <button data-s="balances" data-uid="nav/balances">Balances</button>
+    <button data-s="members" data-uid="nav/members">Members</button>
   </nav>
 </div>
 
 <div class="scrim" id="add">
-  <div class="sheet">
-    <h2>Add expense <button class="x" onclick="closeAdd()">✕</button></h2>
+  <div class="sheet" data-uid="add-expense/sheet">
+    <h2>Add expense <button class="x" data-uid="add-expense/close" onclick="closeAdd()">✕</button></h2>
     <div class="row2">
-      <div class="field" style="flex:1.4">
+      <div class="field" style="flex:1.4" data-uid="add-expense/payer">
         <label>Who paid?</label>
         <select class="in" id="e-payer">
           <option>You</option><option>Mina</option><option>Louis</option><option>Léa</option>
         </select>
       </div>
-      <div class="field">
+      <div class="field" data-uid="add-expense/amount">
         <label>Amount</label>
         <input class="in tnum" id="e-amt" type="number" min="0" step="0.01" value="84.30">
       </div>
     </div>
-    <div class="field">
+    <div class="field" data-uid="add-expense/title">
       <label>Title</label>
       <input class="in" id="e-title" placeholder="Groceries at Coop">
     </div>
     <div class="row2">
-      <div class="field"><label>Category</label>
+      <div class="field" data-uid="add-expense/category"><label>Category</label>
         <select class="in" id="e-cat">
           <option>Groceries</option><option>Rent</option><option>Utilities</option>
           <option>Transport</option><option>Leisure</option><option>Other</option>
@@ -202,17 +226,32 @@
       </div>
       <div class="field"><label>Date</label><input class="in" id="e-date" type="date" value="2026-09-24"></div>
     </div>
-    <div class="field">
+    <div class="field" data-uid="add-expense/split">
       <label>Split</label>
       <div class="seg">
-        <button id="seg-eq" class="on" onclick="setSplit('equal')">Equal</button>
-        <button id="seg-cu" onclick="setSplit('custom')">Custom %</button>
+        <button id="seg-eq" class="on" data-uid="add-expense/split-equal" onclick="setSplit('equal')">Equal</button>
+        <button id="seg-cu" data-uid="add-expense/split-custom" onclick="setSplit('custom')">Custom %</button>
       </div>
-      <div class="parts" id="e-parts"></div>
+      <div class="parts" id="e-parts" data-uid="add-expense/participants"></div>
       <div class="sum">Sum <b id="e-sum" class="tnum">CHF 0</b></div>
     </div>
-    <button class="btn primary" onclick="saveExpense()">Save expense</button>
+    <button class="btn primary" data-uid="add-expense/save" onclick="saveExpense()">Save expense</button>
   </div>
+</div>
+
+<div id="annot-hint" data-annot-ignore>Annotation mode — click any element, then describe what it should do. Esc exits.</div>
+<div id="annot-bar" data-annot-ignore>
+  <div id="annot-panel">
+    <h4>Prototype feedback</h4>
+    <div id="annot-target-id">—</div>
+    <textarea id="annot-note" placeholder="This button should…"></textarea>
+    <div class="row">
+      <button class="go" onclick="annotOpenIssue()">Open GitHub issue</button>
+      <button onclick="annotCopy()">Copy markdown</button>
+      <button onclick="annotClose()">Close</button>
+    </div>
+  </div>
+  <button id="annot-toggle" onclick="annotToggle()">Annotate</button>
 </div>
 
 <script>
@@ -406,6 +445,202 @@ function recordSettlement(){
   moves.forEach(function(m){ SETTLED.push({from:m.from,to:m.to,amt:m.amt,days:"just now"}); });
   renderHome(); renderBalances(); renderMembers();
 }
+
+/* ------------------------------------------------------------------ *
+ * Prototype annotation layer.
+ * Pure client-side, zero dependencies: turns "click a component" into a
+ * prefilled GitHub issue (label `prototype-feedback`) that the agent intake
+ * workflow turns into a brainstorm + sub-issues. Enable with ?annotate=1
+ * or the floating "Annotate" button.
+ * ------------------------------------------------------------------ */
+var ANNOT = {
+  repo: "share-org/share",
+  live: "https://share-org.github.io/share-docs/product/maquette/mockups/app.html",
+  label: "prototype-feedback",
+  maxNote: 3000
+};
+(function(){
+  var qs = new URLSearchParams(location.search);
+  if (qs.get("repo")) ANNOT.repo = qs.get("repo");
+
+  var SEL = "button,a,input,select,textarea,label,h1,h2,h3,h4,header,nav,.card,.hero,.col,"+
+            ".exp,.mini,.part,.field,.row2,.seg,.chip,.scrim,.sheet,.tag,.pill,.split-badge,"+
+            ".who,.amt,.meta,.ico,.k,.v,.sum,.nm,.empty,.bottom,.note";
+  var SCREENS = {"s-home":"Dashboard","s-balances":"Balances","s-members":"Members",
+                 "add":"Add expense","annot-bar":"Prototype annotation toolbar"};
+  var bar, panel, note, targetId, picked = null, hover = null;
+
+  function visible(el){ return !!el && el.getClientRects().length > 0; }
+
+  function componentOf(t){
+    if (!t || t.nodeType !== 1) return null;
+    if (t.closest("#annot-bar, #annot-hint")) return null;
+    if (t.dataset && t.dataset.uid) return t;
+    var n = t;
+    while (n && n !== document.body){
+      if (n.matches && n.matches(SEL)) return n;
+      n = n.parentElement;
+    }
+    return t;
+  }
+
+  /* CSS-ish path, scoped by the nearest explicit data-uid ancestor. */
+  function pathOf(el){
+    var parts = [], node = el;
+    while (node && node !== document.body && parts.length < 6){
+      var seg = node.tagName.toLowerCase();
+      if (node.id) seg += "#" + node.id;
+      else if (node.classList && node.classList.length)
+        seg += "." + Array.prototype.slice.call(node.classList, 0, 2).join(".");
+      if (node.parentElement){
+        var same = Array.prototype.filter.call(node.parentElement.children, function(c){
+          return c.tagName === node.tagName && c.className === node.className; });
+        if (same.length > 1) seg += ":" + (same.indexOf(node) + 1);
+      }
+      parts.unshift(seg);
+      if (node.dataset && node.dataset.uid) break;
+      node = node.parentElement;
+    }
+    return parts.join(" > ");
+  }
+
+  function screenOf(el){
+    var s = el.closest(".screen, #add");
+    if (s && (s.id === "add" ? s.classList.contains("open") : s.classList.contains("on")))
+      return SCREENS[s.id] || s.id;
+    if (el.closest("nav.bottom")) return "Navigation";
+    if (el.closest("header")) return "Header";
+    return "Global";
+  }
+
+  function describe(el){
+    var t = (el.getAttribute("aria-label") || el.getAttribute("title") || "").trim();
+    if (!t) t = (el.textContent || "").replace(/\s+/g, " ").trim();
+    if (t.length > 70) t = t.slice(0, 70) + "…";
+    return el.tagName.toLowerCase() + (el.id ? "#" + el.id : "") + (t ? " — " + t : "");
+  }
+
+  function uidOf(el){ return (el.dataset && el.dataset.uid) || pathOf(el); }
+
+  function pageUrl(){ return ANNOT.live || location.href; }
+
+  function issueBody(){
+    var n = note.value.trim();
+    if (n.length > ANNOT.maxNote) n = n.slice(0, ANNOT.maxNote) + "\n…(truncated)";
+    return [
+      "## Prototype feedback",
+      "",
+      "**Screen:** " + screenOf(picked),
+      "**Element:** `" + uidOf(picked) + "`",
+      "**Component:** `" + describe(picked) + "`",
+      "**Prototype:** " + pageUrl(),
+      "**Viewport:** " + innerWidth + "x" + innerHeight,
+      "",
+      "### What I want this to do",
+      n || "_(describe the expected behaviour here)_",
+      "",
+      "---",
+      "Opened from the SharedHousehold prototype annotation layer.",
+      "Agent-Run: (assigned at intake)"
+    ].join("\n");
+  }
+
+  function issueUrl(){
+    var title = "Prototype feedback: " + screenOf(picked) + " / " + uidOf(picked);
+    return "https://github.com/" + ANNOT.repo + "/issues/new?labels=" +
+      encodeURIComponent(ANNOT.label) + "&title=" + encodeURIComponent(title) +
+      "&body=" + encodeURIComponent(issueBody());
+  }
+
+  function pick(el){
+    if (picked) picked.classList.remove("annot-picked");
+    picked = el;
+    el.classList.add("annot-picked");
+    targetId.textContent = screenOf(el) + "  ·  " + uidOf(el) + "  ·  " + describe(el);
+    note.value = note.value || "";
+    panel.classList.add("open");
+    note.focus();
+  }
+
+  function manifest(){
+    var out = [], seen = {};
+    var root = document.querySelector(".screen.on") || document.body;
+    var all = [].concat(Array.prototype.slice.call(document.querySelectorAll("header, nav.bottom")), []);
+    if (root) all = all.concat(Array.prototype.slice.call(root.querySelectorAll("*")));
+    all.forEach(function(el){
+      if (!visible(el) || el.closest("#annot-bar, #annot-hint")) return;
+      var c = componentOf(el); if (c !== el) return;
+      var u = uidOf(el);
+      if (seen[u]) return; seen[u] = 1;
+      out.push({ screen: screenOf(el), element: u, component: describe(el) });
+    });
+    return out;
+  }
+
+  function copy(text, btn){
+    var done = function(){ var o = btn.textContent; btn.textContent = "Copied"; setTimeout(function(){ btn.textContent = o; }, 1200); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function(){});
+    else { var ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta);
+           ta.select(); try { document.execCommand("copy"); done(); } catch (e) {} document.body.removeChild(ta); }
+  }
+
+  document.addEventListener("mouseover", function(e){
+    if (!document.body.classList.contains("annotating") || hover === e.target) return;
+    if (hover) hover.classList.remove("annot-hover");
+    var el = componentOf(e.target);
+    if (el && el !== picked){ hover = el; el.classList.add("annot-hover"); }
+  }, true);
+
+  document.addEventListener("click", function(e){
+    if (!document.body.classList.contains("annotating")) return;
+    var el = componentOf(e.target);
+    if (!el) return;
+    e.preventDefault(); e.stopPropagation();
+    pick(el);
+  }, true);
+
+  addEventListener("keydown", function(e){ if (e.key === "Escape" && document.body.classList.contains("annotating")) toggle(false); });
+
+  function toggle(on){
+    document.body.classList.toggle("annotating", on);
+    var btn = document.getElementById("annot-toggle");
+    btn.classList.toggle("on", on);
+    btn.textContent = on ? "Stop annotating" : "Annotate";
+    if (!on){
+      panel.classList.remove("open");
+      if (picked){ picked.classList.remove("annot-picked"); picked = null; }
+    } else if (!panel.classList.contains("open")) note.blur();
+  }
+
+  window.annotToggle = function(){ toggle(!document.body.classList.contains("annotating")); };
+  window.annotClose = function(){ toggle(false); };
+  window.annotOpenIssue = function(){
+    if (!picked) return;
+    var url = issueUrl();
+    if (url.length > 6000){
+      copy(issueBody(), document.querySelector("#annot-panel .go"));
+      alert("This note is too long to prefill the URL. The markdown was copied — paste it into a new issue labeled 'prototype-feedback'.");
+      return;
+    }
+    window.open(url, "_blank", "noopener");
+  };
+  window.annotCopy = function(){
+    if (!picked) return;
+    copy("**" + screenOf(picked) + " / " + uidOf(picked) + "**\n\n" + note.value.trim(), this);
+  };
+  window.annotManifest = function(){
+    copy(JSON.stringify(manifest(), null, 2), document.getElementById("annot-toggle"));
+  };
+
+  bar = document.getElementById("annot-bar");
+  panel = document.getElementById("annot-panel");
+  note = document.getElementById("annot-note");
+  targetId = document.getElementById("annot-target-id");
+  var copyBtn = document.createElement("button");
+  copyBtn.textContent = "Copy manifest"; copyBtn.onclick = function(){ window.annotManifest(); };
+  panel.querySelector(".row").appendChild(copyBtn);
+  if (qs.get("annotate") === "1" || location.hash === "#annotate") toggle(true);
+})();
 
 renderHome(); renderBalances(); renderMembers();
 </script>

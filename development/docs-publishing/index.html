@@ -791,6 +791,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../product/maquette/maquette/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maquette & prototype feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1057,6 +1085,17 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-prototype-is-published-too" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The prototype is published too
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#how-it-works" class="md-nav__link">
@@ -1400,6 +1439,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-prototype-is-published-too" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The prototype is published too
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1465,6 +1515,19 @@
 hosted in the dedicated public repository <strong><code>share-org/share-docs</code></strong>
 (<a href="https://share-org.github.io/share-docs/">https://share-org.github.io/share-docs/</a>). The private <code>share</code> repository
 remains the single source of truth: editing <code>docs/</code> there republishes the site.</p>
+<h2 id="the-prototype-is-published-too">The prototype is published too<a class="headerlink" href="#the-prototype-is-published-too" title="Permanent link">&para;</a></h2>
+<p><code>docs/product/maquette/mockups/app.html</code> is a static file inside <code>docs/</code>, so
+MkDocs copies it verbatim to
+<a href="https://share-org.github.io/share-docs/product/maquette/mockups/app.html">https://share-org.github.io/share-docs/product/maquette/mockups/app.html</a>.
+That is the <strong>live prototype</strong>: the same file the repository holds, reachable
+from a browser.</p>
+<p>It carries the annotation layer — open it with <code>?annotate=1</code>, click a component,
+and it opens a pre-filled issue in <code>share-org/share</code> labeled
+<code>prototype-feedback</code>. There is no backend and no third-party review service; the
+annotation layer is plain client-side JavaScript in that one file. Editing the
+maquette on <code>main</code> republishes it with the rest of the site.</p>
+<p>Consequence: the prototype is <strong>world-readable</strong>, exactly like everything else
+under <code>docs/</code>. Do not put real household data in the maquette.</p>
 <h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
 <p>The <code>docs-publish</code> workflow in <code>share</code> (<code>.github/workflows/docs-publish.yml</code>):</p>
 <ol>
