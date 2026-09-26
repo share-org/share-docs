@@ -1297,6 +1297,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-the-heartbeat-interval-is-enforced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the heartbeat interval is enforced
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-limits-are-enforced-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which limits are enforced where
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-happens-when-a-budget-is-reached" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1646,6 +1668,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-the-heartbeat-interval-is-enforced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the heartbeat interval is enforced
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-limits-are-enforced-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which limits are enforced where
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-happens-when-a-budget-is-reached" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1762,6 +1806,56 @@ A missing or empty variable means "use the default below", never "unlimited".</p
 <p>Per the request that this system came from, "24/7" means <em>continuously monitor
 and reconcile</em>, not <em>continuously create tasks</em>. The issue cap is the main
 guardrail against that misreading.</p>
+<h2 id="how-the-heartbeat-interval-is-enforced">How the heartbeat interval is enforced<a class="headerlink" href="#how-the-heartbeat-interval-is-enforced" title="Permanent link">&para;</a></h2>
+<p>GitHub Actions cron <strong>cannot read repository variables</strong>, so the schedule is
+fixed at 15 minutes in <code>.github/workflows/project-manager-loop.yml</code> and
+<code>MANAGER_HEARTBEAT_MINUTES</code> is applied at run time: the gate measures how long
+since the Manager Ledger was last updated and skips the cycle if it is inside the
+interval, clamped to a 15-minute floor.</p>
+<p>So the schedule is the <em>cadence</em> and the variable is the <em>rate limit</em>. Raising
+<code>MANAGER_HEARTBEAT_MINUTES</code> above 15 works immediately; lowering it below 15
+does not, because the floor is deliberate. Changing the cadence itself means
+editing the workflow, which is a guardrail path and therefore always a human
+merge.</p>
+<h2 id="which-limits-are-enforced-where">Which limits are enforced where<a class="headerlink" href="#which-limits-are-enforced-where" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Limit</th>
+<th>Enforced by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MANAGER_HEARTBEAT_MINUTES</code></td>
+<td>shell gate (deterministic)</td>
+</tr>
+<tr>
+<td><code>MANAGER_MAX_NEW_ISSUES_PER_CYCLE</code></td>
+<td>manager, against the ledger</td>
+</tr>
+<tr>
+<td><code>MANAGER_MAX_PRS_IN_FLIGHT</code></td>
+<td>manager, before creating work</td>
+</tr>
+<tr>
+<td><code>MANAGER_MAX_CONCURRENT_AGENTS</code></td>
+<td>manager, when delegating</td>
+</tr>
+<tr>
+<td><code>MANAGER_MAX_RETRIES_SAME_STRATEGY</code></td>
+<td>manager, from the ledger</td>
+</tr>
+<tr>
+<td><code>MANAGER_MAX_AUTONOMOUS_ATTEMPTS</code></td>
+<td>manager, from the ledger</td>
+</tr>
+</tbody>
+</table>
+<p>Only the stop conditions and the heartbeat interval are enforced in shell,
+because only those must hold even if the model misbehaves. The counting limits
+are the manager's own bookkeeping, exported into its environment as variables so
+it reads one source of truth instead of remembering numbers.</p>
 <h2 id="what-happens-when-a-budget-is-reached">What happens when a budget is reached<a class="headerlink" href="#what-happens-when-a-budget-is-reached" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Stop starting new work immediately.</li>

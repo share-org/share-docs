@@ -2061,8 +2061,14 @@ MANAGER_AUTONOMY=human_only                 -&gt; analysis and proposals only
 </code></pre>
 <p>A stop signal that still starts work is not a stop signal; <code>PAUSED</code> and
 <code>EMERGENCY_STOP</code> must produce zero new issues, zero delegations and zero merges.</p>
-<p>Human commands, once wired: <code>/oc manager status</code>, <code>/oc manager pause</code>,
-<code>/oc manager resume</code>.</p>
+<p>Human commands, defined in <code>.opencode/commands/manager.md</code> and routed by
+<code>.github/workflows/opencode-command.yml</code>: <code>/oc manager status</code>,
+<code>/oc manager pause</code>, <code>/oc manager resume</code>, <code>/oc manager run</code>.</p>
+<p><code>status</code> is read-only and runs for any non-bot actor. The other three change
+state, so they run only for actors in <code>OC_TRUSTED_ACTORS</code>. <code>pause</code> and <code>resume</code>
+move the <code>manager:paused</code> label on the current issue. <code>run</code> asks the agent for
+one cycle; it does <strong>not</strong> bypass the shell gate, which is why a paused manager
+stays paused through it.</p>
 <h2 id="durable-state">Durable state<a class="headerlink" href="#durable-state" title="Permanent link">&para;</a></h2>
 <p>There is no private backlog. Project state is derived from GitHub, and the
 manager's own bookkeeping (run log, budget counters, retry attempts, queued

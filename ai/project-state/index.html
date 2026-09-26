@@ -1908,9 +1908,14 @@ needed. It is a legitimate outcome, not a failure to be avoided.</p>
 <p>Labels are created by <code>scripts/setup-labels.sh</code>.</p>
 <h2 id="manager-state">Manager state<a class="headerlink" href="#manager-state" title="Permanent link">&para;</a></h2>
 <p>The manager's own bookkeeping — run log, budget counters, retry attempts,
-queued work — lives in a single pinned <strong>Manager Ledger</strong> issue. A pinned issue
-was chosen over a repository file because it is atomic, auditable, visible to the
-founder, and already covered by the label and concurrency machinery.</p>
+queued work — lives in a single <strong>Manager Ledger</strong> issue. An issue was chosen
+over a repository file because it is atomic, auditable, visible to the founder,
+and already covered by the label and concurrency machinery.</p>
+<p>"Pinned" here means <em>identified by the <code>manager:ledger</code> label and never
+duplicated</em>, not a GitHub UI pin: GitHub exposes no REST API for pinning issues,
+so the label is the only stable handle automation can resolve. The workflow
+finds the ledger by that label and creates it if it is missing, which makes
+"exactly one ledger" an invariant worth asserting rather than assuming.</p>
 <p>The ledger is the answer to "what did the manager already do, so it does not do
 it twice". Before any create/dispatch/merge, the manager checks it.</p>
 <h2 id="deriving-the-current-state">Deriving the current state<a class="headerlink" href="#deriving-the-current-state" title="Permanent link">&para;</a></h2>
