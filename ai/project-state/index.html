@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://share-org.github.io/share-docs/ai/model-strategy/">
+        <link rel="canonical" href="https://share-org.github.io/share-docs/ai/project-state/">
       
       
-        <link rel="prev" href="../agent-strategy/">
+        <link rel="prev" href="../autonomy-budget/">
       
       
-        <link rel="next" href="../context-management/">
+        <link rel="next" href="../agent-workflow/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Model strategy - SharedHousehold Docs & Reports</title>
+        <title>Project state - SharedHousehold Docs & Reports</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#model-strategy" class="md-skip">
+        <a href="#project-state-model" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Model strategy
+              Project state
             
           </span>
         </div>
@@ -1251,10 +1251,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../project-state/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project state
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1270,6 +1297,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-truth-in-precedence-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources of truth, in precedence order
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#work-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work state machine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Work state machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#label-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Label mapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manager-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manager state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deriving-the-current-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deriving the current state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deriving-progress-against-the-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deriving progress against the roadmap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deriving-quality-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deriving quality state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deriving-is-it-actually-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deriving "is it actually complete"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anti-patterns-this-model-exists-to-prevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anti-patterns this model exists to prevent
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1363,37 +1515,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Model strategy
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../model-strategy/" class="md-nav__link">
         
   
   
@@ -1409,120 +1534,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#agent-model-matrix" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Agent model matrix
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Agent model matrix">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-the-openrouter-free-agents-were-remapped-2026-09-21-chore-ops-003" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why the OpenRouter :free agents were remapped (2026-09-21, chore OPS-003)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#model-resolution-in-github-actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Model resolution in GitHub Actions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cost-profile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cost profile
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fallback-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fallback policy
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rate-limit-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rate-limit considerations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#privacy-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Privacy considerations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unresolved-items-human-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unresolved items / human configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1674,22 +1685,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#agent-model-matrix" class="md-nav__link">
+  <a href="#sources-of-truth-in-precedence-order" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent model matrix
+        Sources of truth, in precedence order
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Agent model matrix">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#work-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work state machine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Work state machine">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-the-openrouter-free-agents-were-remapped-2026-09-21-chore-ops-003" class="md-nav__link">
+  <a href="#label-mapping" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why the OpenRouter :free agents were remapped (2026-09-21, chore OPS-003)
+        Label mapping
       
     </span>
   </a>
@@ -1702,10 +1724,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#model-resolution-in-github-actions" class="md-nav__link">
+  <a href="#manager-state" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Model resolution in GitHub Actions
+        Manager state
       
     </span>
   </a>
@@ -1713,10 +1735,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cost-profile" class="md-nav__link">
+  <a href="#deriving-the-current-state" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cost profile
+        Deriving the current state
       
     </span>
   </a>
@@ -1724,10 +1746,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fallback-policy" class="md-nav__link">
+  <a href="#deriving-progress-against-the-roadmap" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fallback policy
+        Deriving progress against the roadmap
       
     </span>
   </a>
@@ -1735,10 +1757,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rate-limit-considerations" class="md-nav__link">
+  <a href="#deriving-quality-state" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rate-limit considerations
+        Deriving quality state
       
     </span>
   </a>
@@ -1746,10 +1768,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#privacy-considerations" class="md-nav__link">
+  <a href="#deriving-is-it-actually-complete" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Privacy considerations
+        Deriving "is it actually complete"
       
     </span>
   </a>
@@ -1757,10 +1779,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unresolved-items-human-configuration" class="md-nav__link">
+  <a href="#anti-patterns-this-model-exists-to-prevent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unresolved items / human configuration
+        Anti-patterns this model exists to prevent
       
     </span>
   </a>
@@ -1784,199 +1806,201 @@
 
 
 
-<h1 id="model-strategy">Model strategy<a class="headerlink" href="#model-strategy" title="Permanent link">&para;</a></h1>
-<p>This repository uses explicit per-agent model assignments so that every role
-runs on a model suited to its workload. Roles are preserved even if a specific
-model identity is unavailable; unresolved models are documented here rather
-than silently replaced.</p>
-<h2 id="agent-model-matrix">Agent model matrix<a class="headerlink" href="#agent-model-matrix" title="Permanent link">&para;</a></h2>
+<h1 id="project-state-model">Project State Model<a class="headerlink" href="#project-state-model" title="Permanent link">&para;</a></h1>
+<p>How the Project Manager derives project state.</p>
+<p><strong>This is not a status file.</strong> Nothing here is edited by hand to record progress,
+and there is no machine-written state file in the repository. State is <em>derived</em>,
+on every run, from GitHub and the repository artifacts. This document describes
+the derivation so any human or agent can reproduce it.</p>
+<p>The reason this matters: the manager is a transient process. It must be able to
+start from zero and reconstruct the project. If state lived only in a model's
+context, a restart would silently lose it — and a manager that cannot remember
+what it already did will duplicate work.</p>
+<h2 id="sources-of-truth-in-precedence-order">Sources of truth, in precedence order<a class="headerlink" href="#sources-of-truth-in-precedence-order" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Human instruction</strong> — a direct comment from the founder. Always wins.</li>
+<li><strong>GitHub labels</strong> on issues — authoritative for the state of actual work.</li>
+<li><strong>Merged PRs and green CI</strong> — authoritative for what is genuinely complete.</li>
+<li><strong><code>docs/product/done-criteria.md</code></strong> — authoritative for "product done".</li>
+<li><strong><code>docs/product/roadmap.md</code></strong> — authoritative for intended order and scope.
+   Its execution-status column is a <em>mirror</em> maintained by the manager.</li>
+<li><strong><code>docs/architecture/decisions/</code></strong> — authoritative for settled decisions.</li>
+<li><strong><code>docs/product/mvp.md</code>, <code>vision.md</code>, <code>docs/ux/</code>, <code>docs/ai/</code></strong> — context.</li>
+</ol>
+<p>When two sources disagree, the higher one wins <strong>and the lower one is corrected</strong>.
+Labels beating the roadmap is the common case: the roadmap is documentation, the
+labels are reality.</p>
+<h2 id="work-state-machine">Work state machine<a class="headerlink" href="#work-state-machine" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">BACKLOG
+   ↓
+DISCOVERY      (analysis, and brainstorming when a design decision matters)
+   ↓
+DESIGN         (product-planner + architect; UX via designer when relevant)
+   ↓
+READY          (specified and actionable — safe for an implementer to start)
+   ↓
+IN_PROGRESS    (an implementation agent is working, or a PR is open)
+   ↓
+QA             (qa-engineer verifying acceptance criteria)
+   ↓
+REVIEW         (code review, plus security review when required)
+   ↓
+READY_TO_MERGE (all gates green; merge-eligible, or awaiting the founder)
+   ↓
+DONE
+</code></pre>
+<p><code>BLOCKED</code> is a side state, not a step:</p>
+<pre><code class="language-text">any state → BLOCKED → (resume) the state it came from
+</code></pre>
+<p><code>BLOCKED</code> always carries evidence: what was tried, what failed, and what is
+needed. It is a legitimate outcome, not a failure to be avoided.</p>
+<h3 id="label-mapping">Label mapping<a class="headerlink" href="#label-mapping" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Agent</th>
-<th>Model</th>
-<th>Provider</th>
-<th>Why</th>
+<th>State</th>
+<th>Label</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>project-manager</td>
-<td><code>opencode/nemotron-3-ultra-free</code></td>
-<td>opencode gateway</td>
-<td>Project-wide reconciliation, sequencing and gate evaluation; deliberately a reasoning model, since it delegates execution and never writes code</td>
+<td>BACKLOG</td>
+<td><code>status:backlog</code></td>
 </tr>
 <tr>
-<td>orchestrator</td>
-<td><code>opencode/nemotron-3-ultra-free</code></td>
-<td>opencode gateway</td>
-<td>Coordination and delegation; free reasoning model, low cost</td>
+<td>DISCOVERY</td>
+<td><code>status:discovery</code></td>
 </tr>
 <tr>
-<td>brainstormer</td>
-<td><code>opencode/nemotron-3-ultra-free</code></td>
-<td>opencode gateway</td>
-<td>Structuring multi-agent discussion and synthesis; free reasoning model</td>
+<td>DESIGN</td>
+<td><code>status:discovery</code> (the design and analysis labels are intentionally the same)</td>
 </tr>
 <tr>
-<td>product-planner</td>
-<td><code>opencode/nemotron-3-ultra-free</code></td>
-<td>opencode gateway</td>
-<td>Writing precise specs benefits from the same strong reasoning model</td>
+<td>READY</td>
+<td><code>status:ready</code></td>
 </tr>
 <tr>
-<td>architect</td>
-<td><code>opencode/nemotron-3-ultra-free</code></td>
-<td>opencode gateway</td>
-<td>Compact planning under bounded context</td>
+<td>IN_PROGRESS</td>
+<td><code>status:in-progress</code></td>
 </tr>
 <tr>
-<td>backend-implementer</td>
-<td><code>opencode/nemotron-3-ultra-free</code></td>
-<td>opencode gateway</td>
-<td>Java/Spring Boot implementation (fallback: was <code>openrouter/cohere/north-mini-code:free</code>)</td>
+<td>QA</td>
+<td><code>status:qa</code></td>
 </tr>
 <tr>
-<td>frontend-implementer</td>
-<td><code>opencode/nemotron-3-ultra-free</code></td>
-<td>opencode gateway</td>
-<td>React/TypeScript implementation (fallback: was <code>openrouter/poolside/laguna-s-2.1:free</code>)</td>
+<td>REVIEW</td>
+<td><code>status:review</code></td>
 </tr>
 <tr>
-<td>qa-engineer</td>
-<td><code>opencode/nemotron-3.5-lightning-free</code></td>
-<td>opencode gateway</td>
-<td>Independent acceptance/edge-case verification (fallback: was <code>openrouter/poolside/laguna-s-2.1:free</code>)</td>
+<td>READY_TO_MERGE</td>
+<td><code>status:qa</code> + <code>status:review</code></td>
 </tr>
 <tr>
-<td>code-reviewer</td>
-<td><code>opencode/ling-3.0-flash-fin-free</code></td>
-<td>opencode gateway</td>
-<td>Independent review (fallback: was <code>openrouter/inclusionai/ling-3.0-flash-fin:free</code>)</td>
+<td>DONE</td>
+<td><code>status:done</code></td>
 </tr>
 <tr>
-<td>security-reviewer</td>
-<td><code>opencode/nemotron-3.5-lightning-free</code></td>
-<td>opencode gateway</td>
-<td>Focused security review, free tier</td>
-</tr>
-<tr>
-<td>documentation</td>
-<td><code>opencode/ling-3.0-flash-fin-free</code></td>
-<td>opencode gateway</td>
-<td>Concise doc edits, free tier</td>
-</tr>
-<tr>
-<td>researcher</td>
-<td><code>opencode/nemotron-3-ultra-free</code></td>
-<td>opencode gateway</td>
-<td>External research, reasoning + web tools</td>
-</tr>
-<tr>
-<td>designer</td>
-<td><code>opencode/nemotron-3-ultra-free</code></td>
-<td>opencode gateway</td>
-<td>Product/UI design, maquettes and wireframes; reasoning + file tools</td>
+<td>BLOCKED</td>
+<td><code>status:blocked</code></td>
 </tr>
 </tbody>
 </table>
-<p>The brainstormer model is used for synthesis and report writing. The individual
-brainstorming participants use their own assigned models.</p>
-<h3 id="why-the-openrouter-free-agents-were-remapped-2026-09-21-chore-ops-003">Why the OpenRouter <code>:free</code> agents were remapped (2026-09-21, <code>chore OPS-003</code>)<a class="headerlink" href="#why-the-openrouter-free-agents-were-remapped-2026-09-21-chore-ops-003" title="Permanent link">&para;</a></h3>
-<p>During OPS-010 verification, subagent runs failed with a
-<code>free-models-per-day</code> rate-limit message ("add 10 credits to unlock 1000 free
-model requests per day"). The four agents that had been assigned OpenRouter
-<code>:free</code> models (backend-implementer, frontend-implementer, qa-engineer,
-code-reviewer) were remapped to the OpenCode gateway free tier
-(<code>opencode/*-free</code>, verified working anonymously — see OPS-002) to keep the
-roster consistent and avoid depending on mixed providers.</p>
-<p>Honest caveat: this remap does NOT bypass the daily free-model cap. The
-<code>free-models-per-day</code> limit is enforced by the model gateway for free-tier
-requests across providers and was already exhausted during heavy sessions.
-If the daily cap blocks subagents again, options are: wait for the reset,
-add gateway credits (1000 free requests/day per the message), or use a paid
-OpenRouter low-cost model. The original OpenRouter assignments are recorded in
-the matrix above as the revert target if an OpenRouter subscription is added.</p>
-<h2 id="model-resolution-in-github-actions">Model resolution in GitHub Actions<a class="headerlink" href="#model-resolution-in-github-actions" title="Permanent link">&para;</a></h2>
-<p>GitHub workflows run the <strong>orchestrator</strong> as the primary agent and resolve the
-model passed to <code>anomalyco/opencode/github@latest</code> from <code>.github/oc-models.json</code>
-— the single source that mirrors the roster above. The workflows never override
-a per-agent model otherwise; targeted <code>@agent</code> work runs through the
-orchestrator's <code>task</code> tool with each subagent's own assigned model.</p>
-<p>Runtime details:</p>
-<ul>
-<li>Workflows use <code>use_github_token: true</code> (<code>GITHUB_TOKEN</code> mode), so no OpenCode
-  GitHub App install is required and workflow permissions stay per-job
-  (least privilege).</li>
-<li>Model endpoints in the runner are intended to be the same <code>opencode/*-free</code>
-  gateway verified in OPS-002. If the runner cannot reach the anonymous free
-  tier, add the <code>OPENCODE_API_KEY</code> repository secret (OpenCode gateway/team
-  key) or a provider secret such as <code>ANTHROPIC_API_KEY</code>, and update
-  <code>.github/oc-models.json</code> plus this strategy together.</li>
-<li>The free-tier daily cap documented below applies in CI as well; heavy
-  GitHub-triggered runs may need gateway credits or a paid low-cost fallback.</li>
-</ul>
-<h2 id="cost-profile">Cost profile<a class="headerlink" href="#cost-profile" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Primary models are all free-tier or free-gateway models. The system is built
-  for cheap/free operation.</li>
-<li><code>:free</code> OpenRouter models may carry rate-limit and concurrency constraints;
-  expect them to be less reliable during peak usage.</li>
-<li>Fallbacks 1 and 2 below are low-cost; fallback 3 is a paid model and is used
-  only when configured.</li>
-</ul>
-<h2 id="fallback-policy">Fallback policy<a class="headerlink" href="#fallback-policy" title="Permanent link">&para;</a></h2>
-<p>Fallbacks are optional and depend on the model provider the developer has
-configured. Never hard-code a paid provider credential or API key.</p>
-<p>When the primary model fails (unavailable endpoint, rate limit, repeated tool
-failure, context limitations, repeated unsuccessful implementation attempts):</p>
+<p>Labels are created by <code>scripts/setup-labels.sh</code>.</p>
+<h2 id="manager-state">Manager state<a class="headerlink" href="#manager-state" title="Permanent link">&para;</a></h2>
+<p>The manager's own bookkeeping — run log, budget counters, retry attempts,
+queued work — lives in a single pinned <strong>Manager Ledger</strong> issue. A pinned issue
+was chosen over a repository file because it is atomic, auditable, visible to the
+founder, and already covered by the label and concurrency machinery.</p>
+<p>The ledger is the answer to "what did the manager already do, so it does not do
+it twice". Before any create/dispatch/merge, the manager checks it.</p>
+<h2 id="deriving-the-current-state">Deriving the current state<a class="headerlink" href="#deriving-the-current-state" title="Permanent link">&para;</a></h2>
+<p>On each cycle the manager reads, in this order and <strong>no further</strong>:</p>
 <ol>
-<li><strong>deepseek</strong> low-cost model available through the configured provider
-   (e.g. <code>openrouter/~deepseek/deepseek-flash-latest</code>).</li>
-<li><strong>glm</strong> low-cost model available through the configured provider
-   (e.g. <code>openrouter/~z-ai/glm-flash-latest</code>).</li>
-<li><strong>gpt-5.6-luna</strong> / the OpenAI <code>luna</code> family
-   (e.g. <code>openrouter/~openai/gpt-luna-latest</code>) only as a final
-   low-cost/high-capability fallback when configured.</li>
+<li><code>docs/ai/project-state.md</code> (this file) and <code>docs/ai/autonomy-policy.md</code></li>
+<li>the ledger issue</li>
+<li>issues filtered by state label — open ones, and <code>status:blocked</code> ones</li>
+<li>open PRs and their CI status</li>
+<li>recent merges (last ~20)</li>
+<li>prototype feedback issues</li>
+<li><code>docs/product/roadmap.md</code></li>
+<li>only then the specific files for the work in hand</li>
 </ol>
-<p>Note: the literal identifier <code>gpt-5.6-luna</code> may not resolve in every
-installation; the <code>~openai/gpt-luna-latest</code> alias is the supported spelling on
-OpenRouter. Verify availability with <code>opencode models</code> before use.</p>
-<p>After two materially similar failures, escalate or change strategy rather than
-blindly retrying the same approach.</p>
-<h2 id="rate-limit-considerations">Rate-limit considerations<a class="headerlink" href="#rate-limit-considerations" title="Permanent link">&para;</a></h2>
+<p>Filter by label <strong>before</strong> sending anything to a model. Reading every issue is
+both slow and a context-economics violation; the whole point of labels is that
+they let the manager select rather than ingest.</p>
+<h2 id="deriving-progress-against-the-roadmap">Deriving progress against the roadmap<a class="headerlink" href="#deriving-progress-against-the-roadmap" title="Permanent link">&para;</a></h2>
+<p>For each roadmap capability, classify using evidence rather than assertion:</p>
+<table>
+<thead>
+<tr>
+<th>Classification</th>
+<th>Evidence required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>completed</code></td>
+<td>a merged PR <strong>and</strong> green CI <strong>and</strong> the acceptance criteria demonstrably met</td>
+</tr>
+<tr>
+<td><code>in-progress</code></td>
+<td>an open issue in <code>READY</code>..<code>REVIEW</code>, or an open PR</td>
+</tr>
+<tr>
+<td><code>blocked</code></td>
+<td><code>status:blocked</code> with recorded evidence</td>
+</tr>
+<tr>
+<td><code>missing</code></td>
+<td>no issue covers it</td>
+</tr>
+<tr>
+<td><code>obsolete</code></td>
+<td>superseded by a decision, or explicitly out of MVP scope</td>
+</tr>
+<tr>
+<td><code>next</code></td>
+<td>the earliest <code>missing</code> or <code>obsolete</code>-but-still-wanted capability whose dependencies are all <code>completed</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>next</code> is the answer to "what should happen next", and it is the only input to
+the proactive-work decision. Dependencies come from the roadmap ordering and from
+<code>Part of</code> / <code>feedback:child-of-</code> relationships on issues.</p>
+<h2 id="deriving-quality-state">Deriving quality state<a class="headerlink" href="#deriving-quality-state" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">CI failing on any open PR   → the owning issue is not progressing
+QA failed or never ran      → the PR is not merge-eligible
+review finding open         → delegate the correction, do not merge
+security review absent on a HIGH/CRITICAL change → not merge-eligible
+</code></pre>
+<h2 id="deriving-is-it-actually-complete">Deriving "is it actually complete"<a class="headerlink" href="#deriving-is-it-actually-complete" title="Permanent link">&para;</a></h2>
+<p>A task is <code>DONE</code> only with all of:</p>
+<pre><code class="language-text">requirements satisfied
+AND implementation complete
+AND tests pass
+AND QA passed
+AND review passed
+AND CI green
+AND required UX / visual validation passed
+AND required documentation updated
+</code></pre>
+<p>An agent reporting "done" is a claim, not evidence. The manager verifies against
+merged PRs, CI and QA results.</p>
+<p>Completion is also a ladder, and the levels must not be conflated:</p>
+<pre><code class="language-text">task done      → this issue's acceptance criteria are met
+feature done   → the user-visible capability works end to end
+milestone done → every capability in the milestone is done
+MVP done       → every MVP capability in docs/product/mvp.md is done
+product done   → docs/product/done-criteria.md is satisfied
+</code></pre>
+<p>Only the last one means the project is finished.</p>
+<h2 id="anti-patterns-this-model-exists-to-prevent">Anti-patterns this model exists to prevent<a class="headerlink" href="#anti-patterns-this-model-exists-to-prevent" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Free-tier endpoints commonly enforce per-minute/per-day limits. For planning
-  agents (orchestrator, product-planner, architect) prefer fewer, larger calls
-  over many small ones.</li>
-<li>Keep agent prompts compact (see <code>docs/ai/context-management.md</code>) to stay
-  within context limits and reduce token burn.</li>
-</ul>
-<h2 id="privacy-considerations">Privacy considerations<a class="headerlink" href="#privacy-considerations" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>Free does not automatically mean private.</p>
-</blockquote>
-<ul>
-<li>Free third-party model endpoints may have provider-specific logging,
-  training, and data-use policies.</li>
-<li>Do not send secrets, tokens, credentials, or more data than necessary to any
-  model endpoint.</li>
-<li>Treat household financial data sent to any external model as sensitive.
-  Where possible, prefer providers the team has verified, and keep prompts free
-  of PII and credentials.</li>
-<li>This document contains no secrets, tokens, or credentials.</li>
-</ul>
-<h2 id="unresolved-items-human-configuration">Unresolved items / human configuration<a class="headerlink" href="#unresolved-items-human-configuration" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Verified (2026-09-21, <code>chore OPS-002</code>): the <code>opencode/*-free</code> identifiers
-  (<code>opencode/nemotron-3-ultra-free</code>, <code>opencode/nemotron-3.5-lightning-free</code>,
-  <code>opencode/ling-3.0-flash-fin-free</code>) are served by the OpenCode gateway and
-  respond anonymously — no API key or billing required for the free-tier
-  models. They were probed with a one-turn <code>opencode run --model ...</code> check.</li>
-<li>Verify all identifiers resolve locally:
-  <code>opencode models</code></li>
-<li>After any change to agent/model configuration, restart OpenCode so the new
-  configuration is loaded.</li>
+<li>Treating a merged PR as a completed feature.</li>
+<li>Treating "no open issues" as "nothing left to do" when the roadmap has more.</li>
+<li>Creating a duplicate task because the previous one was described in different
+  words — hence: search open <em>and</em> closed issues before creating.</li>
+<li>Keeping a private backlog in model context that no human can audit.</li>
 </ul>
 
 

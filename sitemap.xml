@@ -13,6 +13,14 @@
          <lastmod>2026-09-26</lastmod>
     </url>
     <url>
+         <loc>https://share-org.github.io/share-docs/ai/autonomy-budget/</loc>
+         <lastmod>2026-09-26</lastmod>
+    </url>
+    <url>
+         <loc>https://share-org.github.io/share-docs/ai/autonomy-policy/</loc>
+         <lastmod>2026-09-26</lastmod>
+    </url>
+    <url>
          <loc>https://share-org.github.io/share-docs/ai/context-management/</loc>
          <lastmod>2026-09-26</lastmod>
     </url>
@@ -26,6 +34,14 @@
     </url>
     <url>
          <loc>https://share-org.github.io/share-docs/ai/model-strategy/</loc>
+         <lastmod>2026-09-26</lastmod>
+    </url>
+    <url>
+         <loc>https://share-org.github.io/share-docs/ai/project-manager/</loc>
+         <lastmod>2026-09-26</lastmod>
+    </url>
+    <url>
+         <loc>https://share-org.github.io/share-docs/ai/project-state/</loc>
          <lastmod>2026-09-26</lastmod>
     </url>
     <url>
@@ -57,6 +73,10 @@
          <lastmod>2026-09-26</lastmod>
     </url>
     <url>
+         <loc>https://share-org.github.io/share-docs/ai/reports/</loc>
+         <lastmod>2026-09-26</lastmod>
+    </url>
+    <url>
          <loc>https://share-org.github.io/share-docs/ai/runs/</loc>
          <lastmod>2026-09-26</lastmod>
     </url>
@@ -81,6 +101,10 @@
          <lastmod>2026-09-26</lastmod>
     </url>
     <url>
+         <loc>https://share-org.github.io/share-docs/architecture/decisions/ADR-002-autonomous-project-manager/</loc>
+         <lastmod>2026-09-26</lastmod>
+    </url>
+    <url>
          <loc>https://share-org.github.io/share-docs/development/agent-protocol/</loc>
          <lastmod>2026-09-26</lastmod>
     </url>
@@ -102,6 +126,10 @@
     </url>
     <url>
          <loc>https://share-org.github.io/share-docs/development/workflow/</loc>
+         <lastmod>2026-09-26</lastmod>
+    </url>
+    <url>
+         <loc>https://share-org.github.io/share-docs/product/done-criteria/</loc>
          <lastmod>2026-09-26</lastmod>
     </url>
     <url>

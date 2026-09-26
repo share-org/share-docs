@@ -14,7 +14,7 @@
         <link rel="prev" href="../mvp/">
       
       
-        <link rel="next" href="../personas/">
+        <link rel="next" href="../done-criteria/">
       
       
         
@@ -448,6 +448,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../architecture/decisions/ADR-002-autonomous-project-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-002 autonomous project manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../architecture/decisions/ADR-000-template/" class="md-nav__link">
         
   
@@ -804,6 +832,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#execution-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#phase-0-foundation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -869,10 +908,49 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#current-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../done-criteria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Done criteria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1227,6 +1305,118 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ai/project-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/autonomy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomy policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/autonomy-budget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomy budget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/project-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project state
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../ai/agent-workflow/" class="md-nav__link">
         
   
@@ -1395,6 +1585,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ai/reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manager reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../ai/runs/" class="md-nav__link">
         
   
@@ -1448,6 +1666,17 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#execution-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution status
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#phase-0-foundation" class="md-nav__link">
@@ -1515,6 +1744,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#current-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1537,62 +1777,256 @@
 <p>Future phases are hypotheses, not commitments. Each phase begins only when the
 previous phase is stable and the need is real.</p>
 </blockquote>
+<h2 id="execution-status">Execution status<a class="headerlink" href="#execution-status" title="Permanent link">&para;</a></h2>
+<p><strong>GitHub labels are authoritative for actual state.</strong> The tables below are a
+mirror maintained by the Project Manager, not the source of truth. If the two
+disagree, the labels win and these tables are corrected. See
+<code>docs/ai/project-state.md</code> for the derivation rules.</p>
+<p>The Project Manager may update <em>status</em> here freely. It may <strong>not</strong> silently
+change scope, priority or phase order — that is a roadmap proposal, and it goes
+to the founder.</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>not started</code></td>
+<td>No implementation work exists</td>
+</tr>
+<tr>
+<td><code>in progress</code></td>
+<td>Open issue in <code>READY</code>..<code>REVIEW</code>, or an open PR</td>
+</tr>
+<tr>
+<td><code>done</code></td>
+<td>Merged PR <strong>and</strong> green CI <strong>and</strong> acceptance criteria met</td>
+</tr>
+<tr>
+<td><code>blocked</code></td>
+<td><code>status:blocked</code> with recorded evidence</td>
+</tr>
+<tr>
+<td><code>out of MVP</code></td>
+<td>Explicitly deferred; not required for MVP completion</td>
+</tr>
+</tbody>
+</table>
+<p><code>docs/product/done-criteria.md</code> defines when the product as a whole is done.
+<code>docs/product/mvp.md</code> is the authoritative MVP scope.</p>
 <h2 id="phase-0-foundation">Phase 0 — Foundation<a class="headerlink" href="#phase-0-foundation" title="Permanent link">&para;</a></h2>
-<pre><code class="language-text">Repository
-AI development workflow
-CI baseline
-Architecture documentation
-Authentication baseline
-Database baseline
-Security baseline
-Observability baseline
-</code></pre>
-<p>Note: these are roadmap items. Not all are implemented during bootstrap.</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Status</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository</td>
+<td>done</td>
+<td>initial commits</td>
+</tr>
+<tr>
+<td>AI development workflow</td>
+<td>done</td>
+<td>ADR-001, ADR-002, <code>docs/ai/</code></td>
+</tr>
+<tr>
+<td>CI baseline</td>
+<td>done</td>
+<td>#1, "chore OPS-010 : CI baseline"</td>
+</tr>
+<tr>
+<td>Architecture documentation</td>
+<td>done</td>
+<td><code>docs/architecture/</code></td>
+</tr>
+<tr>
+<td>Database baseline</td>
+<td>done</td>
+<td><code>src/main/resources/db/migration/</code></td>
+</tr>
+<tr>
+<td>Authentication baseline</td>
+<td>not started</td>
+<td>no auth code in <code>src/</code></td>
+</tr>
+<tr>
+<td>Security baseline</td>
+<td>partial</td>
+<td>ADR-001 agent permissions; household isolation not yet implemented</td>
+</tr>
+<tr>
+<td>Observability baseline</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
 <h2 id="phase-1-household">Phase 1 — Household<a class="headerlink" href="#phase-1-household" title="Permanent link">&para;</a></h2>
-<pre><code class="language-text">Create household
-Invite member
-Accept invitation
-Remove member
-Household roles
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Status</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create household</td>
+<td>not started</td>
+<td>no household code in <code>src/</code></td>
+</tr>
+<tr>
+<td>Invite member</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Accept invitation</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Remove member</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Household roles</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>This phase gates most of the MVP: an expense needs a household and its members.</p>
 <h2 id="phase-2-expenses">Phase 2 — Expenses<a class="headerlink" href="#phase-2-expenses" title="Permanent link">&para;</a></h2>
-<pre><code class="language-text">Create expense
-Specify payer
-Add participants
-Equal split
-Percentage split
-Shares split
-Custom split
-Expense history
-Edit expense
-Delete expense
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Status</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create expense</td>
+<td>done</td>
+<td><code>api/expense</code>, <code>ExpenseControllerTest</code></td>
+</tr>
+<tr>
+<td>Specify payer</td>
+<td>done</td>
+<td><code>domain/Expense</code></td>
+</tr>
+<tr>
+<td>Add participants</td>
+<td>done</td>
+<td><code>domain/Expense</code></td>
+</tr>
+<tr>
+<td>Equal split</td>
+<td>done</td>
+<td><code>ShareAllocationCalculatorTest</code></td>
+</tr>
+<tr>
+<td>Shares split</td>
+<td>done</td>
+<td>#3, "EXP-105 implemented"</td>
+</tr>
+<tr>
+<td>Custom split</td>
+<td>not started</td>
+<td>no evidence found</td>
+</tr>
+<tr>
+<td>Expense history</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Edit expense</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Delete expense</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Percentage split</td>
+<td>out of MVP</td>
+<td><code>mvp.md</code>: planned after MVP</td>
+</tr>
+</tbody>
+</table>
+<p>Deterministic remainder distribution was corrected in #4 ("fix EXP-212"). Money,
+rounding and allocations are <code>HIGH</code> risk under <code>docs/ai/autonomy-policy.md</code>:
+financial correctness is never traded for progress, and no test around it may be
+weakened to make work pass.</p>
 <h2 id="phase-3-financial-ledger">Phase 3 — Financial ledger<a class="headerlink" href="#phase-3-financial-ledger" title="Permanent link">&para;</a></h2>
-<pre><code class="language-text">Calculate balances
-Member-to-member obligations
-Settlement
-Settlement history
-Debt simplification
-</code></pre>
-<p>The MVP (<code>docs/product/mvp.md</code>) covers the subset of Phases 0–3 needed to
-create, split, balance, and settle expenses.</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Status</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calculate balances</td>
+<td>not started</td>
+<td>no balance code in <code>src/</code></td>
+</tr>
+<tr>
+<td>Member-to-member obligations</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Settlement</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Settlement history</td>
+<td>not started</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Debt simplification</td>
+<td>out of MVP</td>
+<td>not in <code>mvp.md</code> scope</td>
+</tr>
+</tbody>
+</table>
 <h2 id="phase-4-recurring-expenses">Phase 4 — Recurring expenses<a class="headerlink" href="#phase-4-recurring-expenses" title="Permanent link">&para;</a></h2>
-<pre><code class="language-text">Rent
-Internet
-Electricity
-Subscriptions
-Recurring generation
-Reminder
+<p>Hypotheses only. All capabilities <code>out of MVP</code>:</p>
+<pre><code class="language-text">Rent   Internet   Electricity   Subscriptions   Recurring generation   Reminder
 </code></pre>
 <h2 id="phase-5-shared-products">Phase 5 — Shared products<a class="headerlink" href="#phase-5-shared-products" title="Permanent link">&para;</a></h2>
-<pre><code class="language-text">Shared product
-Product purchase
-Consumer/share allocation
-Quantity
-Unit price
-Household stock
-Shopping list
+<p>Hypotheses only. All capabilities <code>out of MVP</code>:</p>
+<pre><code class="language-text">Shared product   Product purchase   Consumer/share allocation
+Quantity         Unit price         Household stock   Shopping list
 </code></pre>
+<h2 id="current-sequence">Current sequence<a class="headerlink" href="#current-sequence" title="Permanent link">&para;</a></h2>
+<p>Derived from the tables above, for the Project Manager's use:</p>
+<pre><code class="language-text">1. Phase 1  Household   &lt;- blocks the MVP; nothing exists yet
+2. Phase 2  remainder  &lt;- custom split, history, edit, delete
+3. Phase 3  Ledger     &lt;- balances, then settlement
+</code></pre>
+<p>The MVP in <code>docs/product/mvp.md</code> is the subset of Phases 0-3 needed to create,
+split, balance and settle expenses. Phases 4 and 5 are not committed.</p>
 
 
 

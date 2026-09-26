@@ -14,7 +14,7 @@
         <link rel="prev" href="../../../ai/brainstorms/BR-002-expense-shares/">
       
       
-        <link rel="next" href="../ADR-000-template/">
+        <link rel="next" href="../ADR-002-autonomous-project-manager/">
       
       
         
@@ -599,10 +599,49 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#addendum-project-manager-2026-09-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Addendum: project-manager (2026-09-26)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ADR-002-autonomous-project-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-002 autonomous project manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -917,6 +956,34 @@
     
   
     Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/done-criteria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Done criteria
   
 
     
@@ -1279,6 +1346,118 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../ai/project-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/autonomy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomy policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/autonomy-budget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomy budget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/project-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project state
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../ai/agent-workflow/" class="md-nav__link">
         
   
@@ -1427,6 +1606,34 @@
     
   
     MCP strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manager reports
   
 
     
@@ -1617,6 +1824,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#addendum-project-manager-2026-09-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Addendum: project-manager (2026-09-26)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1711,6 +1929,65 @@ silent.</p>
 <li>If new tools are added to the permission schema that these agents might need</li>
 <li>If the agent roster changes significantly (new agents added)</li>
 </ul>
+<h2 id="addendum-project-manager-2026-09-26">Addendum: <code>project-manager</code> (2026-09-26)<a class="headerlink" href="#addendum-project-manager-2026-09-26" title="Permanent link">&para;</a></h2>
+<p>Triggered by the roster-change revisit trigger above, following ADR-002.</p>
+<p><code>project-manager</code> is added with an explicit restrictive <code>permission:</code> block,
+following the same map-form pattern as this ADR rather than the wildcard form
+that caused findings C1/C2:</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Setting</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>read</code>, <code>grep</code>, <code>glob</code>, <code>list</code></td>
+<td><code>allow</code></td>
+<td>Reconciliation is read-mostly.</td>
+</tr>
+<tr>
+<td><code>edit</code> / <code>write</code></td>
+<td><code>docs/**</code>, <code>AGENTS.md</code> only; <code>*: deny</code></td>
+<td>The manager may maintain <code>docs/product/roadmap.md</code> execution status and its own policy docs. It must never edit application source.</td>
+</tr>
+<tr>
+<td><code>bash</code></td>
+<td><code>git *</code>, <code>gh *</code> only; <code>*: deny</code></td>
+<td>Sufficient for issue/label/PR/CI/ledger operations and workflow dispatch. It is <strong>not</strong> given <code>mvn</code>, <code>npm</code>, <code>docker</code> or any database client, so it cannot build, test or touch a database itself — it delegates execution and reads evidence instead.</td>
+</tr>
+<tr>
+<td><code>task</code></td>
+<td><code>allow</code></td>
+<td>This is how it delegates to specialists.</td>
+</tr>
+<tr>
+<td><code>webfetch</code>, <code>websearch</code></td>
+<td><code>ask</code></td>
+<td>Same posture as the orchestrator.</td>
+</tr>
+<tr>
+<td><code>external_directory</code></td>
+<td><code>deny</code></td>
+<td>Unchanged. Writes outside the repository hang CI.</td>
+</tr>
+</tbody>
+</table>
+<p>Two consequences of this block worth recording explicitly:</p>
+<ul>
+<li>The manager is <strong>not</strong> able to run the test suite. This is intentional. It
+  must not be able to make a build pass; it reads CI and QA results as
+  evidence. Giving it <code>mvn</code> would have let it self-certify its own merge gates.</li>
+<li><code>gh *</code> is broad enough to include <code>gh pr merge</code>, which the manager is
+  permitted to use under the gate policy in ADR-002. Least privilege is
+  therefore enforced at the <strong>prompt-contract and test</strong> layer for that one
+  operation, not by the permission schema, which cannot express it. The
+  prohibitions (<code>--admin</code>, guardrail merges, bypassing branch protection) are
+  pinned by <code>scripts/test-project-manager.sh</code>.</li>
+</ul>
+<p>No existing agent's permissions were widened or narrowed by this change.</p>
 
 
 
