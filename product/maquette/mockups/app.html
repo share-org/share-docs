@@ -273,6 +273,7 @@ var EXPENSES = [
 var SETTLED = [
   {from:"Mina",to:"You",amt:40.00,days:"3 d ago"}
 ];
+var activityExpanded = false;
 
 function shares(e){
   var n = e.parts.length;
@@ -311,13 +312,22 @@ function renderHome(){
   items = items.sort(function(a,b){return items.indexOf(a)-items.indexOf(b);});
   document.getElementById("act-count").textContent = items.length;
   if (!items.length){ act.innerHTML = '<div class="empty">No activity yet</div>'; }
-  items.forEach(function(it){
+  var displayItems = activityExpanded ? items : items.slice(0, 3);
+  displayItems.forEach(function(it){
     var d = document.createElement("div"); d.className = "exp";
     d.innerHTML = '<div class="ico">'+(CATS[it.i]||"💰")+'</div>'+
       '<div class="meta"><b>'+(it.t)+'</b><span>'+it.s+'</span></div>'+
       '<div class="amt"><b class="tnum">—</b><span></span></div>';
     act.appendChild(d);
   });
+  if (items.length > 3){
+    var btn = document.createElement("button");
+    btn.className = "btn ghost";
+    btn.style.marginTop = "8px";
+    btn.textContent = activityExpanded ? "Show less" : "Show more";
+    btn.onclick = function(){ activityExpanded = !activityExpanded; renderHome(); };
+    act.appendChild(btn);
+  }
 
   var list = document.getElementById("exp-list"); list.innerHTML = "";
   EXPENSES.slice().reverse().forEach(function(e){
