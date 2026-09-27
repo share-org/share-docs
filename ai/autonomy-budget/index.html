@@ -1305,6 +1305,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How the heartbeat interval is enforced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#an-explicit-dispatch-is-never-throttled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        An explicit dispatch is never throttled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1676,6 +1693,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How the heartbeat interval is enforced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#an-explicit-dispatch-is-never-throttled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        An explicit dispatch is never throttled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1799,7 +1833,7 @@ A missing or empty variable means "use the default below", never "unlimited".</p
 <tr>
 <td><code>MANAGER_HEARTBEAT_MINUTES</code></td>
 <td><code>30</code></td>
-<td>Heartbeat interval, clamped to a floor of 15.</td>
+<td>Heartbeat interval, clamped to a floor of 15. Not applied to an explicit <code>workflow_dispatch</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -1817,6 +1851,29 @@ interval, clamped to a 15-minute floor.</p>
 does not, because the floor is deliberate. Changing the cadence itself means
 editing the workflow, which is a guardrail path and therefore always a human
 merge.</p>
+<h3 id="an-explicit-dispatch-is-never-throttled">An explicit dispatch is never throttled<a class="headerlink" href="#an-explicit-dispatch-is-never-throttled" title="Permanent link">&para;</a></h3>
+<p>The interval applies to every trigger <em>except</em> <code>workflow_dispatch</code>. The rate
+limit exists to damp triggers that fire on their own — a CI completion, a label
+change, the clock — each of which can happen several times between two
+heartbeats. A dispatch is the opposite: a person pressed "run", by hand, on
+purpose.</p>
+<p>Throttling a request makes the loop untestable. Every fix needs a live cycle to
+prove itself, and if the human is the thing being throttled there is no way to
+get one without first waiting out the interval. So to test a change, dispatch the
+workflow and it runs now:</p>
+<pre><code class="language-text">/oc manager run
+</code></pre>
+<p>or <strong>Actions → project-manager → Run workflow</strong> on <code>main</code>.</p>
+<p>The bypass is announced as a <code>::notice</code> in the run and recorded in the Manager
+Ledger next to the result, so a cycle that overrode the throttle is always
+distinguishable from one that waited its turn.</p>
+<p>It skips the throttle and <strong>nothing else</strong>. The <code>manager:paused</code> emergency stop
+and <code>MANAGER_AUTONOMY=human_only</code> are evaluated before the interval and still
+apply to a dispatch. A cycle started by hand is still a gated cycle.</p>
+<p><code>MANAGER_MAX_CYCLES_PER_HOUR</code> is <em>not</em> a shell limit — it is the manager's own
+bookkeeping — so repeated manual dispatches are not hard-capped. The
+<code>oc-project-manager</code> concurrency group still serialises them: a second cycle
+queues behind the first rather than running beside it.</p>
 <h2 id="which-limits-are-enforced-where">Which limits are enforced where<a class="headerlink" href="#which-limits-are-enforced-where" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1828,7 +1885,7 @@ merge.</p>
 <tbody>
 <tr>
 <td><code>MANAGER_HEARTBEAT_MINUTES</code></td>
-<td>shell gate (deterministic)</td>
+<td>shell gate (deterministic), except an explicit <code>workflow_dispatch</code></td>
 </tr>
 <tr>
 <td><code>MANAGER_MAX_NEW_ISSUES_PER_CYCLE</code></td>
