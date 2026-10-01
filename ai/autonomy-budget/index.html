@@ -1851,6 +1851,13 @@ interval, clamped to a 15-minute floor.</p>
 does not, because the floor is deliberate. Changing the cadence itself means
 editing the workflow, which is a guardrail path and therefore always a human
 merge.</p>
+<p><strong>Set the variable to 15 to match the cron.</strong> With the default of 30 the two
+disagree: cron fires every 15 minutes, and every second tick is skipped by the
+gate as rate-limited. The result looks like a healthy loop on the Actions tab —
+a run every 15 minutes, green — while the manager actually acts every 30. The
+skipped run is reported, not silent, but a green run that deliberately did
+nothing is easy to mistake for progress. <code>MANAGER_HEARTBEAT_MINUTES=15</code> removes
+the gap without touching the workflow.</p>
 <h3 id="an-explicit-dispatch-is-never-throttled">An explicit dispatch is never throttled<a class="headerlink" href="#an-explicit-dispatch-is-never-throttled" title="Permanent link">&para;</a></h3>
 <p>The interval applies to every trigger <em>except</em> <code>workflow_dispatch</code>. The rate
 limit exists to damp triggers that fire on their own — a CI completion, a label

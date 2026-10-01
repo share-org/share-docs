@@ -1947,12 +1947,25 @@ PROJECT MANAGER            &lt;-- this agent
       v
   PR --&gt; MANAGER GATE --&gt; MERGE --&gt; ROADMAP RECONCILE --&gt; NEXT VALUE
 </code></pre>
-<p>Mechanically the manager is a <code>mode: subagent</code> agent invoked by its own
-workflow, exactly as <code>code-reviewer</code> is invoked by <code>opencode-pr-review</code>. It is
-<em>conceptually</em> above the orchestrator, and it delegates downward to the same
-specialists the orchestrator uses. It is deliberately not a second
-<code>mode: primary</code> agent, which would have changed the runtime behaviour of every
-existing pipeline phase.</p>
+<p>The manager is a <code>mode: primary</code> agent invoked by its own heartbeat workflow.
+This is not a stylistic choice. The <code>agent:</code> input of <code>anomalyco/opencode/github</code>
+documents <em>"Must be a primary agent"</em> and <strong>falls back to <code>build</code> without any
+warning</strong> when the named agent is not one. While the manager was declared
+<code>mode: subagent</code>, the heartbeat passed <code>agent: project-manager</code>, silently ran as
+<code>build</code>, and the run log said <code>agent: "build"</code> from start to finish. Every
+permission in the manager's frontmatter was therefore inert: bash <code>*</code> was
+allowed (the file says <code>*</code> is <code>deny</code>), and <code>external_directory</code> fell back to the
+default <code>ask</code> instead of <code>deny</code>. The <code>ask</code> action has nobody to answer it in CI,
+so the cycle blocked until its step timeout — 80 minutes to do nothing.</p>
+<p>Two rules follow, and both are enforced by <code>scripts/test-project-manager.sh</code>:</p>
+<ul>
+<li><strong>An agent named in a workflow's <code>agent:</code> input must be <code>mode: primary</code>.</strong>
+  Otherwise that workflow runs as <code>build</code> with its permissions.</li>
+<li><strong><code>ask</code> is <code>deny</code> in CI.</strong> An unattended cycle must never wait on a decision.</li>
+</ul>
+<p>The manager is <em>conceptually</em> above the orchestrator and both are primary entry
+points. Only two agents in the roster are primary: the orchestrator and the
+manager.</p>
 <h2 id="the-reconciliation-cycle">The reconciliation cycle<a class="headerlink" href="#the-reconciliation-cycle" title="Permanent link">&para;</a></h2>
 <p>Run on every heartbeat and every event trigger. Full derivation rules are in
 <code>docs/ai/project-state.md</code>.</p>
@@ -1989,6 +2002,30 @@ AND required UX validation passed AND required documentation updated
 feature, milestone, MVP, product — are tracked separately; see
 <code>docs/product/done-criteria.md</code>.</p>
 <h2 id="delegation">Delegation<a class="headerlink" href="#delegation" title="Permanent link">&para;</a></h2>
+<p>Delegation is <strong>GitHub-native</strong>: the manager decides <em>what</em> should run and hands
+it to <code>opencode-pipeline.yml</code>, which executes each specialist as its own job.
+Specialists never run inside the manager's cycle — <code>task</code> is <code>deny</code> in both the
+manager and the orchestrator for exactly this reason. When the manager ran with
+<code>task</code> available it spawned subagents inside its own job (run <code>36325854323</code> shows
+<code>agent: "backend-implementer"</code> at 14:31:20, nested inside the orchestrator's run).
+A nested agent shares its parent's timeout, so one hung subagent consumes the
+entire cycle, and the pipeline's own concurrency group, state machine and merge
+gates are bypassed.</p>
+<p>Two mechanisms, both labelling at creation time:</p>
+<pre><code class="language-bash"># New work: labels MUST be in the same call as the create.
+gh issue create --title &quot;...&quot; --body &quot;...&quot; \
+  --label &quot;status:ready&quot; --label &quot;agent:created&quot;
+
+# Existing issue:
+gh workflow run opencode-pipeline.yml --repo &quot;$GITHUB_REPOSITORY&quot; \
+  -f issue=&lt;N&gt; -f phase=analyze
+</code></pre>
+<p><strong>Label atomicity is not a style rule.</strong> The pipeline guard reads labels <em>at
+event time</em> (<code>github.event.issue.labels</code>). Create-then-label fires the event with
+no labels, so the issue seeds at <code>analyze</code> instead of <code>implement</code> — silently, one
+phase off, for every issue the manager ever creates.</p>
+<p>Pass only the issue number and the phase. Each phase re-reads live GitHub state,
+so context pasted into the prompt is stale on arrival.</p>
 <p>Smallest sufficient team, by work type:</p>
 <table>
 <thead>

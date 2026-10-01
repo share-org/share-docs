@@ -1,0 +1,3178 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://share-org.github.io/share-docs/ai/plans/PLAN-41-household-create/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Implementation Specification: HOUSE-001 Create Household - SharedHousehold Docs & Reports</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#implementation-specification-house-001-create-household" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SharedHousehold Docs &amp; Reports" class="md-header__button md-logo" aria-label="SharedHousehold Docs & Reports" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SharedHousehold Docs & Reports
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Implementation Specification: HOUSE-001 Create Household
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SharedHousehold Docs &amp; Reports" class="md-nav__button md-logo" aria-label="SharedHousehold Docs & Reports" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SharedHousehold Docs & Reports
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisions & Reports
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Decisions & Reports
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../brainstorms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brainstorm index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../brainstorms/BR-001-agent-permission-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent permission architecture (BR-001)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../brainstorms/BR-002-expense-shares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expense shares, EXP-105 (BR-002)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Decision Records
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture Decision Records
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/decisions/ADR-001-agent-permission-restrictions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-001 agent permission restrictions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/decisions/ADR-002-autonomous-project-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-002 autonomous project manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/decisions/ADR-000-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/mvp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/done-criteria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Done criteria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/personas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/maquette/maquette/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maquette & prototype feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/definition-of-ready/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of ready
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/definition-of-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of done
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/agent-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/example-feature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example feature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/docs-publishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docs publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI & Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI & Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../autonomy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomy policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../autonomy-budget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomy budget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project state
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github-agent-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub agent commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mcp-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manager reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Run registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-domain-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Domain Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Domain Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-aggregates-and-value-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Aggregates and Value Objects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Aggregates and Value Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#household-aggregate-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Household (Aggregate Root)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#householdid-value-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HouseholdId (Value Object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memberrole-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MemberRole (Enum)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#householdmember-entity-within-household-aggregate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HouseholdMember (Entity within Household aggregate)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-domain-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Domain Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-repository-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Repository Port
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-member-repository-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Member Repository Extension
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-application-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Application Layer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Application Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-response-application-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Response (Application-level)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Use Case
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Exception
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-infrastructure-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Infrastructure Layer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Infrastructure Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-flyway-migration-v3__household_and_memberssql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Flyway Migration: V3__household_and_members.sql
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-jpa-entities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 JPA Entities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 JPA Entities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#householdjpaentity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HouseholdJpaEntity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memberjpaentity-update-existing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MemberJpaEntity (Update existing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-spring-data-jpa-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Spring Data JPA Repositories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Spring Data JPA Repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#householdjparepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HouseholdJpaRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memberjparepository-update-existing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MemberJpaRepository (Update existing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-repository-adapter-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Repository Adapter Implementation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Repository Adapter Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#householdrepositoryimpl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HouseholdRepositoryImpl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#householdmapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HouseholdMapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-member-repository-adapter-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Member Repository Adapter Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-api-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. API Layer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. API Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-request-dto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Request DTO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-response-dto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Response DTO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-security-household-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Security: Household Isolation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Security: Household Isolation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-current-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Current State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-future-proofing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Future-Proofing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-isolation-enforcement-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Isolation Enforcement Points
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-test-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Test Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Test Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-unit-tests-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Unit Tests (Domain)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-unit-tests-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Unit Tests (Application)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-integration-tests-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Integration Tests (Persistence)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-integration-tests-member-persistence-with-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Integration Tests (Member Persistence with Role)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-api-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 API Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-acceptance-criteria-traceability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Acceptance Criteria Traceability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-implementation-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Implementation Sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-non-goals-explicitly-out-of-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Non-Goals (Explicitly Out of Scope)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Open Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-files-to-createmodify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Files to Create/Modify
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Files to Create/Modify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modified-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modified Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-configuration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Configuration Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="implementation-specification-house-001-create-household">Implementation Specification: HOUSE-001 Create Household<a class="headerlink" href="#implementation-specification-house-001-create-household" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This specification covers the implementation of household creation (<code>POST /api/households</code>), the first capability in Phase 1 of the roadmap. The creator becomes the first member with <code>OWNER</code> role. Household isolation is enforced at all layers.</p>
+<hr />
+<h2 id="1-domain-model">1. Domain Model<a class="headerlink" href="#1-domain-model" title="Permanent link">&para;</a></h2>
+<h3 id="11-aggregates-and-value-objects">1.1 Aggregates and Value Objects<a class="headerlink" href="#11-aggregates-and-value-objects" title="Permanent link">&para;</a></h3>
+<h4 id="household-aggregate-root"><code>Household</code> (Aggregate Root)<a class="headerlink" href="#household-aggregate-root" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">package com.sharedhousehold.domain.household;
+
+public final class Household {
+    private final HouseholdId id;
+    private final String name;
+    private final Instant createdAt;
+    private final Instant updatedAt;
+
+    // Factory method
+    public static Household create(HouseholdId id, String name) { ... }
+
+    // Reconstruction from persistence
+    public static Household reconstruct(HouseholdId id, String name, Instant createdAt, Instant updatedAt) { ... }
+
+    // Getters
+    public HouseholdId getId() { ... }
+    public String getName() { ... }
+    public Instant getCreatedAt() { ... }
+    public Instant getUpdatedAt() { ... }
+
+    // Domain behavior
+    public Household rename(String newName) { ... } // Future use
+}
+</code></pre>
+<p><strong>Invariants:</strong>
+- <code>id</code> must not be null (generated UUID)
+- <code>name</code> must not be null, not blank, max 255 characters
+- <code>createdAt</code> and <code>updatedAt</code> set to <code>Instant.now()</code> on creation</p>
+<h4 id="householdid-value-object"><code>HouseholdId</code> (Value Object)<a class="headerlink" href="#householdid-value-object" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">package com.sharedhousehold.domain.household;
+
+public final class HouseholdId {
+    private final UUID value;
+
+    public static HouseholdId generate() { ... }
+    public static HouseholdId of(UUID uuid) { ... }
+    public UUID getValue() { ... }
+    // equals, hashCode, toString
+}
+</code></pre>
+<h4 id="memberrole-enum"><code>MemberRole</code> (Enum)<a class="headerlink" href="#memberrole-enum" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">package com.sharedhousehold.domain.household;
+
+public enum MemberRole {
+    OWNER,
+    MEMBER
+}
+</code></pre>
+<h4 id="householdmember-entity-within-household-aggregate"><code>HouseholdMember</code> (Entity within Household aggregate)<a class="headerlink" href="#householdmember-entity-within-household-aggregate" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">package com.sharedhousehold.domain.household;
+
+public final class HouseholdMember {
+    private final UUID id;           // Member ID (same as Member.id)
+    private final HouseholdId householdId;
+    private final MemberRole role;
+    private final Instant joinedAt;
+
+    public static HouseholdMember createOwner(UUID memberId, HouseholdId householdId) { ... }
+    public static HouseholdMember createMember(UUID memberId, HouseholdId householdId) { ... }
+    // Getters
+}
+</code></pre>
+<h3 id="12-domain-events">1.2 Domain Events<a class="headerlink" href="#12-domain-events" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">package com.sharedhousehold.domain.household;
+
+public sealed interface HouseholdEvent permits HouseholdCreated, MemberAdded {
+    HouseholdId householdId();
+    Instant occurredAt();
+}
+
+public record HouseholdCreated(HouseholdId householdId, String name, UUID creatorId, Instant occurredAt) implements HouseholdEvent { }
+public record MemberAdded(HouseholdId householdId, UUID memberId, MemberRole role, Instant occurredAt) implements HouseholdEvent { }
+</code></pre>
+<p><strong>Note:</strong> Events are stored in the aggregate and published after successful persistence (outbox pattern or direct publication). For MVP, direct publication via <code>ApplicationEventPublisher</code> is acceptable.</p>
+<h3 id="13-repository-port">1.3 Repository Port<a class="headerlink" href="#13-repository-port" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">package com.sharedhousehold.application.port.household;
+
+import com.sharedhousehold.domain.household.Household;
+import com.sharedhousehold.domain.household.HouseholdId;
+import java.util.Optional;
+
+public interface HouseholdRepository {
+    Household save(Household household);
+    Optional&lt;Household&gt; findById(HouseholdId id);
+    boolean existsById(HouseholdId id);
+}
+</code></pre>
+<h3 id="14-member-repository-extension">1.4 Member Repository Extension<a class="headerlink" href="#14-member-repository-extension" title="Permanent link">&para;</a></h3>
+<p>Extend existing <code>MemberRepository</code> port for household creation needs:</p>
+<pre><code class="language-java">package com.sharedhousehold.application.port;
+
+public interface MemberRepository {
+    // ... existing methods ...
+
+    // New: for creating the first member during household creation
+    Member save(Member member);
+}
+</code></pre>
+<hr />
+<h2 id="2-application-layer">2. Application Layer<a class="headerlink" href="#2-application-layer" title="Permanent link">&para;</a></h2>
+<h3 id="21-command">2.1 Command<a class="headerlink" href="#21-command" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">package com.sharedhousehold.application.command.household;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import java.util.UUID;
+
+public record CreateHouseholdCommand(
+        @NotBlank @Size(max = 255) String name,
+        @NotBlank @Size(max = 255) String creatorName,
+        @NotBlank @Size(max = 255) String creatorEmail) {
+}
+</code></pre>
+<h3 id="22-response-application-level">2.2 Response (Application-level)<a class="headerlink" href="#22-response-application-level" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">package com.sharedhousehold.application.command.household;
+
+import com.sharedhousehold.domain.household.HouseholdId;
+import com.sharedhousehold.domain.household.MemberRole;
+import java.time.Instant;
+import java.util.UUID;
+
+public record CreateHouseholdResult(
+        HouseholdId householdId,
+        String name,
+        UUID creatorMemberId,
+        MemberRole creatorRole,
+        Instant createdAt) {
+}
+</code></pre>
+<h3 id="23-use-case">2.3 Use Case<a class="headerlink" href="#23-use-case" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">package com.sharedhousehold.application.usecase.household;
+
+import com.sharedhousehold.application.command.household.CreateHouseholdCommand;
+import com.sharedhousehold.application.command.household.CreateHouseholdResult;
+import com.sharedhousehold.application.exception.InvalidHouseholdException;
+import com.sharedhousehold.application.port.household.HouseholdRepository;
+import com.sharedhousehold.application.port.MemberRepository;
+import com.sharedhousehold.domain.household.Household;
+import com.sharedhousehold.domain.household.HouseholdId;
+import com.sharedhousehold.domain.household.HouseholdMember;
+import com.sharedhousehold.domain.household.MemberRole;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.context.ApplicationEventPublisher;
+
+import java.time.Instant;
+import java.util.UUID;
+
+@Service
+@Transactional
+public class CreateHouseholdUseCase {
+
+    private final HouseholdRepository householdRepository;
+    private final MemberRepository memberRepository;
+    private final ApplicationEventPublisher eventPublisher;
+
+    public CreateHouseholdUseCase(HouseholdRepository householdRepository,
+                                   MemberRepository memberRepository,
+                                   ApplicationEventPublisher eventPublisher) {
+        this.householdRepository = householdRepository;
+        this.memberRepository = memberRepository;
+        this.eventPublisher = eventPublisher;
+    }
+
+    public CreateHouseholdResult execute(CreateHouseholdCommand command) {
+        // 1. Validate creator email uniqueness within household (not needed for new household, but keep for consistency)
+        // 2. Create Household aggregate
+        HouseholdId householdId = HouseholdId.generate();
+        Household household = Household.create(householdId, command.name());
+
+        // 3. Create creator as OWNER member
+        UUID creatorMemberId = UUID.randomUUID();
+        HouseholdMember ownerMember = HouseholdMember.createOwner(creatorMemberId, householdId);
+
+        // 4. Persist household first
+        Household savedHousehold = householdRepository.save(household);
+
+        // 5. Persist creator member
+        Member creatorMember = new Member(creatorMemberId, householdId.getValue(), command.creatorName(), command.creatorEmail());
+        Member savedMember = memberRepository.save(creatorMember);
+
+        // 6. Publish domain events
+        eventPublisher.publishEvent(new HouseholdCreated(householdId, command.name(), creatorMemberId, Instant.now()));
+        eventPublisher.publishEvent(new MemberAdded(householdId, creatorMemberId, MemberRole.OWNER, Instant.now()));
+
+        return new CreateHouseholdResult(
+                savedHousehold.getId(),
+                savedHousehold.getName(),
+                savedMember.id(),
+                MemberRole.OWNER,
+                savedHousehold.getCreatedAt());
+    }
+}
+</code></pre>
+<h3 id="24-exception">2.4 Exception<a class="headerlink" href="#24-exception" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">package com.sharedhousehold.application.exception.household;
+
+public class InvalidHouseholdException extends RuntimeException {
+    public InvalidHouseholdException(String message) {
+        super(message);
+    }
+}
+</code></pre>
+<hr />
+<h2 id="3-infrastructure-layer">3. Infrastructure Layer<a class="headerlink" href="#3-infrastructure-layer" title="Permanent link">&para;</a></h2>
+<h3 id="31-flyway-migration-v3__household_and_memberssql">3.1 Flyway Migration: <code>V3__household_and_members.sql</code><a class="headerlink" href="#31-flyway-migration-v3__household_and_memberssql" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">-- V3__household_and_members.sql
+-- The households table already exists from V1. Members table also exists.
+-- We need to add role column to members and ensure household creation works.
+
+-- Add role column to members table
+ALTER TABLE members
+    ADD COLUMN role VARCHAR(20) NOT NULL DEFAULT 'MEMBER';
+
+-- Add index for role queries
+CREATE INDEX idx_members_household_id_role ON members (household_id, role);
+
+-- Update existing members to have MEMBER role (data migration)
+UPDATE members SET role = 'MEMBER' WHERE role IS NULL;
+</code></pre>
+<p><strong>Note:</strong> The <code>households</code> and <code>members</code> tables are already created in <code>V1__initial_schema.sql</code>. This migration only adds the <code>role</code> column.</p>
+<h3 id="32-jpa-entities">3.2 JPA Entities<a class="headerlink" href="#32-jpa-entities" title="Permanent link">&para;</a></h3>
+<h4 id="householdjpaentity"><code>HouseholdJpaEntity</code><a class="headerlink" href="#householdjpaentity" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">package com.sharedhousehold.infrastructure.persistence.household;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.time.Instant;
+import java.util.UUID;
+
+@Entity
+@Table(name = &quot;households&quot;)
+public class HouseholdJpaEntity {
+
+    @Id
+    @Column(name = &quot;id&quot;, nullable = false, updatable = false)
+    private UUID id;
+
+    @Column(name = &quot;name&quot;, nullable = false, length = 255)
+    private String name;
+
+    @Column(name = &quot;created_at&quot;, nullable = false, updatable = false)
+    private Instant createdAt;
+
+    @Column(name = &quot;updated_at&quot;, nullable = false)
+    private Instant updatedAt;
+
+    protected HouseholdJpaEntity() {}
+
+    public HouseholdJpaEntity(UUID id, String name, Instant createdAt, Instant updatedAt) {
+        this.id = id;
+        this.name = name;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    // Getters and setters
+    public UUID getId() { return id; }
+    public String getName() { return name; }
+    public Instant getCreatedAt() { return createdAt; }
+    public Instant getUpdatedAt() { return updatedAt; }
+    public void setName(String name) { this.name = name; }
+    public void setUpdatedAt(Instant updatedAt) { this.updatedAt = updatedAt; }
+}
+</code></pre>
+<h4 id="memberjpaentity-update-existing"><code>MemberJpaEntity</code> (Update existing)<a class="headerlink" href="#memberjpaentity-update-existing" title="Permanent link">&para;</a></h4>
+<p>Add <code>role</code> field to existing <code>MemberJpaEntity</code>:</p>
+<pre><code class="language-java">// In MemberJpaEntity.java
+@Column(name = &quot;role&quot;, nullable = false, length = 20)
+private String role = &quot;MEMBER&quot;;
+
+// Add getter/setter
+public String getRole() { return role; }
+public void setRole(String role) { this.role = role; }
+</code></pre>
+<h3 id="33-spring-data-jpa-repositories">3.3 Spring Data JPA Repositories<a class="headerlink" href="#33-spring-data-jpa-repositories" title="Permanent link">&para;</a></h3>
+<h4 id="householdjparepository"><code>HouseholdJpaRepository</code><a class="headerlink" href="#householdjparepository" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">package com.sharedhousehold.infrastructure.persistence.household;
+
+import java.util.Optional;
+import java.util.UUID;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface HouseholdJpaRepository extends JpaRepository&lt;HouseholdJpaEntity, UUID&gt; {
+
+    @Query(&quot;SELECT h FROM HouseholdJpaEntity h WHERE h.id = :id&quot;)
+    Optional&lt;HouseholdJpaEntity&gt; findById(@Param(&quot;id&quot;) UUID id);
+}
+</code></pre>
+<h4 id="memberjparepository-update-existing"><code>MemberJpaRepository</code> (Update existing)<a class="headerlink" href="#memberjparepository-update-existing" title="Permanent link">&para;</a></h4>
+<p>Add role query method:</p>
+<pre><code class="language-java">// In MemberJpaRepository.java
+List&lt;MemberJpaEntity&gt; findByHouseholdIdAndRole(UUID householdId, String role);
+</code></pre>
+<h3 id="34-repository-adapter-implementation">3.4 Repository Adapter Implementation<a class="headerlink" href="#34-repository-adapter-implementation" title="Permanent link">&para;</a></h3>
+<h4 id="householdrepositoryimpl"><code>HouseholdRepositoryImpl</code><a class="headerlink" href="#householdrepositoryimpl" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">package com.sharedhousehold.infrastructure.persistence.household;
+
+import com.sharedhousehold.application.port.household.HouseholdRepository;
+import com.sharedhousehold.domain.household.Household;
+import com.sharedhousehold.domain.household.HouseholdId;
+import java.util.Optional;
+import java.util.UUID;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class HouseholdRepositoryImpl implements HouseholdRepository {
+
+    private final HouseholdJpaRepository householdJpaRepository;
+    private final HouseholdMapper mapper;
+
+    public HouseholdRepositoryImpl(HouseholdJpaRepository householdJpaRepository, HouseholdMapper mapper) {
+        this.householdJpaRepository = householdJpaRepository;
+        this.mapper = mapper;
+    }
+
+    @Override
+    public Household save(Household household) {
+        HouseholdJpaEntity entity = HouseholdMapper.toJpaEntity(household);
+        HouseholdJpaEntity savedEntity = householdJpaRepository.save(entity);
+        return HouseholdMapper.toDomain(savedEntity);
+    }
+
+    @Override
+    public Optional&lt;Household&gt; findById(HouseholdId id) {
+        return householdJpaRepository.findById(id.getValue())
+                .map(HouseholdMapper::toDomain);
+    }
+
+    @Override
+    public boolean existsById(HouseholdId id) {
+        return householdJpaRepository.existsById(id.getValue());
+    }
+}
+</code></pre>
+<h4 id="householdmapper"><code>HouseholdMapper</code><a class="headerlink" href="#householdmapper" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">package com.sharedhousehold.infrastructure.persistence.household;
+
+import com.sharedhousehold.domain.household.Household;
+import com.sharedhousehold.domain.household.HouseholdId;
+import java.time.Instant;
+import java.util.UUID;
+import org.springframework.stereotype.Component;
+
+@Component
+public final class HouseholdMapper {
+
+    private HouseholdMapper() {}
+
+    public static HouseholdJpaEntity toJpaEntity(Household household) {
+        return new HouseholdJpaEntity(
+                household.getId().getValue(),
+                household.getName(),
+                household.getCreatedAt(),
+                household.getUpdatedAt());
+    }
+
+    public static Household toDomain(HouseholdJpaEntity entity) {
+        return Household.reconstruct(
+                HouseholdId.of(entity.getId()),
+                entity.getName(),
+                entity.getCreatedAt(),
+                entity.getUpdatedAt());
+    }
+}
+</code></pre>
+<h3 id="35-member-repository-adapter-update">3.5 Member Repository Adapter Update<a class="headerlink" href="#35-member-repository-adapter-update" title="Permanent link">&para;</a></h3>
+<p>Update <code>MemberRepositoryImpl</code> to support saving new members:</p>
+<pre><code class="language-java">// In MemberRepositoryImpl.java
+@Override
+public Member save(Member member) {
+    MemberJpaEntity entity = new MemberJpaEntity(
+            member.id(),
+            member.householdId(),
+            member.name(),
+            member.email(),
+            Instant.now(),
+            Instant.now(),
+            &quot;MEMBER&quot;); // Default role, will be overridden for OWNER
+    MemberJpaEntity saved = memberJpaRepository.save(entity);
+    return toDomain(saved);
+}
+</code></pre>
+<p>Update <code>MemberJpaEntity</code> constructor to accept role:</p>
+<pre><code class="language-java">// Add constructor with role parameter
+public MemberJpaEntity(UUID id, UUID householdId, String name, String email,
+                       Instant createdAt, Instant updatedAt, String role) {
+    this.id = id;
+    this.householdId = householdId;
+    this.name = name;
+    this.email = email;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.role = role;
+}
+</code></pre>
+<p>Update <code>toDomain</code> in <code>MemberRepositoryImpl</code>:</p>
+<pre><code class="language-java">private Member toDomain(MemberJpaEntity entity) {
+    return new Member(entity.getId(), entity.getHouseholdId(), entity.getName(), entity.getEmail());
+    // Note: role is not in the application port Member record; it's a domain concern
+}
+</code></pre>
+<hr />
+<h2 id="4-api-layer">4. API Layer<a class="headerlink" href="#4-api-layer" title="Permanent link">&para;</a></h2>
+<h3 id="41-request-dto">4.1 Request DTO<a class="headerlink" href="#41-request-dto" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">package com.sharedhousehold.api.household;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+@Schema(description = &quot;Request to create a new household&quot;)
+public record CreateHouseholdRequest(
+        @Schema(description = &quot;Household name&quot;, example = &quot;Sunset Apartment&quot;) @NotBlank @Size(max = 255)
+                String name,
+        @Schema(description = &quot;Creator's display name&quot;, example = &quot;Alice&quot;) @NotBlank @Size(max = 255)
+                String creatorName,
+        @Schema(description = &quot;Creator's email&quot;, example = &quot;alice@example.com&quot;) @NotBlank @Size(max = 255)
+                String creatorEmail) {
+}
+</code></pre>
+<h3 id="42-response-dto">4.2 Response DTO<a class="headerlink" href="#42-response-dto" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">package com.sharedhousehold.api.household;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.util.UUID;
+
+@Schema(description = &quot;Response containing the created household and creator membership&quot;)
+public record CreateHouseholdResponse(
+        @Schema(description = &quot;Household ID&quot;, example = &quot;550e8400-e29b-41d4-a716-446655440000&quot;) UUID id,
+        @Schema(description = &quot;Household name&quot;, example = &quot;Sunset Apartment&quot;) String name,
+        @Schema(description = &quot;Creator's member ID&quot;, example = &quot;550e8400-e29b-41d4-a716-446655440001&quot;) UUID creatorMemberId,
+        @Schema(description = &quot;Creator's role in the household&quot;, example = &quot;OWNER&quot;) String creatorRole,
+        @Schema(description = &quot;When the household was created&quot;, example = &quot;2026-09-24T12:00:00Z&quot;) Instant createdAt) {
+}
+</code></pre>
+<h3 id="43-controller">4.3 Controller<a class="headerlink" href="#43-controller" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">package com.sharedhousehold.api.household;
+
+import com.sharedhousehold.application.command.household.CreateHouseholdCommand;
+import com.sharedhousehold.application.command.household.CreateHouseholdResult;
+import com.sharedhousehold.application.exception.household.InvalidHouseholdException;
+import com.sharedhousehold.application.usecase.household.CreateHouseholdUseCase;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(&quot;/api/households&quot;)
+@Tag(name = &quot;Households&quot;, description = &quot;Household management endpoints&quot;)
+public class HouseholdController {
+
+    private final CreateHouseholdUseCase createHouseholdUseCase;
+
+    public HouseholdController(CreateHouseholdUseCase createHouseholdUseCase) {
+        this.createHouseholdUseCase = createHouseholdUseCase;
+    }
+
+    @PostMapping
+    @Operation(
+            summary = &quot;Create a new household&quot;,
+            description = &quot;Creates a new household with the requester as the owner member&quot;)
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = &quot;201&quot;,
+                    description = &quot;Household created successfully&quot;,
+                    content = @Content(schema = @Schema(implementation = CreateHouseholdResponse.class))),
+            @ApiResponse(
+                    responseCode = &quot;400&quot;,
+                    description = &quot;Invalid request data&quot;,
+                    content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
+            @ApiResponse(
+                    responseCode = &quot;409&quot;,
+                    description = &quot;Email already in use (future: when auth is added)&quot;,
+                    content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
+    })
+    public ResponseEntity&lt;CreateHouseholdResponse&gt; createHousehold(@Valid @RequestBody CreateHouseholdRequest request) {
+        CreateHouseholdCommand command = new CreateHouseholdCommand(
+                request.name(),
+                request.creatorName(),
+                request.creatorEmail());
+
+        CreateHouseholdResult result = createHouseholdUseCase.execute(command);
+        return ResponseEntity.status(HttpStatus.CREATED).body(toResponse(result));
+    }
+
+    @ExceptionHandler(InvalidHouseholdException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleInvalidHousehold(InvalidHouseholdException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(e.getMessage()));
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleIllegalArgument(IllegalArgumentException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(e.getMessage()));
+    }
+
+    private CreateHouseholdResponse toResponse(CreateHouseholdResult result) {
+        return new CreateHouseholdResponse(
+                result.householdId().getValue(),
+                result.name(),
+                result.creatorMemberId(),
+                result.creatorRole().name(),
+                result.createdAt());
+    }
+
+    @Schema(description = &quot;Error response&quot;)
+    public record ErrorResponse(@Schema(description = &quot;Error message&quot;) String message) {}
+}
+</code></pre>
+<hr />
+<h2 id="5-security-household-isolation">5. Security: Household Isolation<a class="headerlink" href="#5-security-household-isolation" title="Permanent link">&para;</a></h2>
+<h3 id="51-current-state">5.1 Current State<a class="headerlink" href="#51-current-state" title="Permanent link">&para;</a></h3>
+<p>No authentication/authorization framework is configured yet (tests exclude <code>SecurityAutoConfiguration</code>). Household isolation for this endpoint is enforced by:
+- Household ID is <strong>generated server-side</strong> (not from client request body)
+- Creator member ID is <strong>generated server-side</strong>
+- No household ID in request path or body for creation</p>
+<h3 id="52-future-proofing">5.2 Future-Proofing<a class="headerlink" href="#52-future-proofing" title="Permanent link">&para;</a></h3>
+<p>When authentication is added (Phase 1: Authentication), the controller will:
+- Extract authenticated user identity from security context
+- Use authenticated user's ID instead of generating a new member ID
+- Validate email ownership</p>
+<p>For now, the endpoint is open but creates isolated households by design.</p>
+<h3 id="53-isolation-enforcement-points">5.3 Isolation Enforcement Points<a class="headerlink" href="#53-isolation-enforcement-points" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Domain:</strong> <code>Household</code> aggregate only exposes its own <code>HouseholdId</code></li>
+<li><strong>Application:</strong> <code>HouseholdRepository.findById</code> takes <code>HouseholdId</code> (not raw UUID)</li>
+<li><strong>Infrastructure:</strong> JPA queries always filter by <code>household_id</code></li>
+<li><strong>API:</strong> No household ID in create request; subsequent endpoints use path variable <code>{householdId}</code></li>
+</ol>
+<hr />
+<h2 id="6-test-strategy">6. Test Strategy<a class="headerlink" href="#6-test-strategy" title="Permanent link">&para;</a></h2>
+<h3 id="61-unit-tests-domain">6.1 Unit Tests (Domain)<a class="headerlink" href="#61-unit-tests-domain" title="Permanent link">&para;</a></h3>
+<p><strong>File:</strong> <code>src/test/java/com/sharedhousehold/domain/household/HouseholdTest.java</code></p>
+<table>
+<thead>
+<tr>
+<th>Test Case</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>createValidHousehold</code></td>
+<td>Factory creates household with generated ID, name, timestamps</td>
+</tr>
+<tr>
+<td><code>createRejectsNullName</code></td>
+<td>Null name throws NPE</td>
+</tr>
+<tr>
+<td><code>createRejectsBlankName</code></td>
+<td>Blank name throws IllegalArgumentException</td>
+</tr>
+<tr>
+<td><code>createRejectsNameTooLong</code></td>
+<td>Name &gt; 255 chars throws IllegalArgumentException</td>
+</tr>
+<tr>
+<td><code>reconstructFromPersistence</code></td>
+<td>Reconstruct preserves all fields</td>
+</tr>
+<tr>
+<td><code>householdIdGenerateProducesUniqueValues</code></td>
+<td>Multiple generates are unique</td>
+</tr>
+<tr>
+<td><code>householdIdOfWrapsUuid</code></td>
+<td>Value object wraps UUID correctly</td>
+</tr>
+<tr>
+<td><code>memberRoleEnumValues</code></td>
+<td>OWNER and MEMBER exist</td>
+</tr>
+<tr>
+<td><code>householdMemberCreateOwner</code></td>
+<td>Owner member has OWNER role</td>
+</tr>
+<tr>
+<td><code>householdMemberCreateMember</code></td>
+<td>Regular member has MEMBER role</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-unit-tests-application">6.2 Unit Tests (Application)<a class="headerlink" href="#62-unit-tests-application" title="Permanent link">&para;</a></h3>
+<p><strong>File:</strong> <code>src/test/java/com/sharedhousehold/application/usecase/household/CreateHouseholdUseCaseTest.java</code></p>
+<table>
+<thead>
+<tr>
+<th>Test Case</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>executeCreatesHouseholdAndOwnerMember</code></td>
+<td>Verifies household + member persisted, events published</td>
+</tr>
+<tr>
+<td><code>executeRejectsBlankName</code></td>
+<td>Blank name throws InvalidHouseholdException</td>
+</tr>
+<tr>
+<td><code>executeRejectsNullName</code></td>
+<td>Null name throws InvalidHouseholdException</td>
+</tr>
+<tr>
+<td><code>executeRejectsNullCreatorName</code></td>
+<td>Null creator name throws InvalidHouseholdException</td>
+</tr>
+<tr>
+<td><code>executeRejectsNullCreatorEmail</code></td>
+<td>Null creator email throws InvalidHouseholdException</td>
+</tr>
+<tr>
+<td><code>executeGeneratesUniqueHouseholdId</code></td>
+<td>Multiple calls produce different IDs</td>
+</tr>
+<tr>
+<td><code>executeGeneratesUniqueMemberId</code></td>
+<td>Multiple calls produce different member IDs</td>
+</tr>
+<tr>
+<td><code>executeSetsOwnerRole</code></td>
+<td>Creator gets OWNER role</td>
+</tr>
+<tr>
+<td><code>executePublishesHouseholdCreatedEvent</code></td>
+<td>Event published with correct data</td>
+</tr>
+<tr>
+<td><code>executePublishesMemberAddedEvent</code></td>
+<td>Event published with OWNER role</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>@Mock</code> for repositories and <code>ApplicationEventPublisher</code>, verify interactions.</p>
+<h3 id="63-integration-tests-persistence">6.3 Integration Tests (Persistence)<a class="headerlink" href="#63-integration-tests-persistence" title="Permanent link">&para;</a></h3>
+<p><strong>File:</strong> <code>src/test/java/com/sharedhousehold/infrastructure/persistence/household/HouseholdRepositoryImplTest.java</code></p>
+<table>
+<thead>
+<tr>
+<th>Test Case</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>saveAndLoadHousehold</code></td>
+<td>Round-trip persistence preserves all fields</td>
+</tr>
+<tr>
+<td><code>findByIdReturnsEmptyForNonExistent</code></td>
+<td>Unknown ID returns empty Optional</td>
+</tr>
+<tr>
+<td><code>existsByIdReturnsTrueForExisting</code></td>
+<td>Existing household returns true</td>
+</tr>
+<tr>
+<td><code>existsByIdReturnsFalseForNonExistent</code></td>
+<td>Unknown ID returns false</td>
+</tr>
+<tr>
+<td><code>householdIsolationCannotLoadFromOtherHousehold</code></td>
+<td>(N/A for findById, but test that different households are separate)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="64-integration-tests-member-persistence-with-role">6.4 Integration Tests (Member Persistence with Role)<a class="headerlink" href="#64-integration-tests-member-persistence-with-role" title="Permanent link">&para;</a></h3>
+<p><strong>File:</strong> <code>src/test/java/com/sharedhousehold/infrastructure/persistence/MemberRepositoryImplTest.java</code> (new or extend existing)</p>
+<table>
+<thead>
+<tr>
+<th>Test Case</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>saveMemberWithOwnerRole</code></td>
+<td>Member saved with OWNER role persists correctly</td>
+</tr>
+<tr>
+<td><code>saveMemberWithMemberRole</code></td>
+<td>Member saved with MEMBER role persists correctly</td>
+</tr>
+<tr>
+<td><code>findByHouseholdIdAndRoleReturnsOwners</code></td>
+<td>Query by role works</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-api-tests">6.5 API Tests<a class="headerlink" href="#65-api-tests" title="Permanent link">&para;</a></h3>
+<p><strong>File:</strong> <code>src/test/java/com/sharedhousehold/api/household/HouseholdControllerTest.java</code></p>
+<table>
+<thead>
+<tr>
+<th>Test Case</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>createHouseholdReturns201AndValidResponse</code></td>
+<td>POST returns 201 with correct JSON structure</td>
+</tr>
+<tr>
+<td><code>createHouseholdResponseContainsGeneratedIds</code></td>
+<td>Both householdId and creatorMemberId are present and valid UUIDs</td>
+</tr>
+<tr>
+<td><code>createHouseholdCreatorHasOwnerRole</code></td>
+<td>Response creatorRole is "OWNER"</td>
+</tr>
+<tr>
+<td><code>createHouseholdRejectsBlankName</code></td>
+<td>Blank name returns 400</td>
+</tr>
+<tr>
+<td><code>createHouseholdRejectsMissingName</code></td>
+<td>Missing name returns 400</td>
+</tr>
+<tr>
+<td><code>createHouseholdRejectsNameTooLong</code></td>
+<td>Name &gt; 255 returns 400</td>
+</tr>
+<tr>
+<td><code>createHouseholdRejectsBlankCreatorName</code></td>
+<td>Blank creatorName returns 400</td>
+</tr>
+<tr>
+<td><code>createHouseholdRejectsBlankCreatorEmail</code></td>
+<td>Blank creatorEmail returns 400</td>
+</tr>
+<tr>
+<td><code>createHouseholdRejectsInvalidEmail</code></td>
+<td>(Optional) Invalid email format returns 400</td>
+</tr>
+<tr>
+<td><code>createMultipleHouseholdsProducesUniqueIds</code></td>
+<td>Two requests produce different household IDs</td>
+</tr>
+<tr>
+<td><code>createdHouseholdPersistedInDatabase</code></td>
+<td>Verify via repository that data is in DB</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-acceptance-criteria-traceability">7. Acceptance Criteria Traceability<a class="headerlink" href="#7-acceptance-criteria-traceability" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>AC #</th>
+<th>Acceptance Criteria</th>
+<th>Covered By</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Household can be created via <code>POST /api/households</code> with a name</td>
+<td>HouseholdController.createHousehold, CreateHouseholdRequest</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Creator becomes first member with <code>OWNER</code> role</td>
+<td>CreateHouseholdUseCase.execute (creates HouseholdMember with OWNER), MemberRepository.save</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Household persisted with generated UUID</td>
+<td>HouseholdId.generate(), HouseholdRepositoryImpl.save</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Household isolation enforced</td>
+<td>No householdId in request; generated server-side; JPA queries filter by household_id</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Unit tests for domain logic</td>
+<td>HouseholdTest, HouseholdIdTest, HouseholdMemberTest, CreateHouseholdUseCaseTest (mocked)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Integration tests for persistence</td>
+<td>HouseholdRepositoryImplTest, MemberRepositoryImplTest (with role)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>API tests for endpoint</td>
+<td>HouseholdControllerTest</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-implementation-sequence">8. Implementation Sequence<a class="headerlink" href="#8-implementation-sequence" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Domain Layer</strong></li>
+<li>Create <code>Household</code>, <code>HouseholdId</code>, <code>MemberRole</code>, <code>HouseholdMember</code> in <code>domain/household/</code></li>
+<li>Create <code>HouseholdEvent</code> hierarchy</li>
+<li>
+<p>Create <code>HouseholdRepository</code> port in <code>application/port/household/</code></p>
+</li>
+<li>
+<p><strong>Application Layer</strong></p>
+</li>
+<li>Create <code>CreateHouseholdCommand</code>, <code>CreateHouseholdResult</code></li>
+<li>Create <code>InvalidHouseholdException</code></li>
+<li>Create <code>CreateHouseholdUseCase</code></li>
+<li>
+<p>Update <code>MemberRepository</code> port with <code>save(Member)</code> method</p>
+</li>
+<li>
+<p><strong>Infrastructure Layer</strong></p>
+</li>
+<li>Create Flyway migration <code>V3__household_and_members.sql</code></li>
+<li>Create <code>HouseholdJpaEntity</code>, <code>HouseholdJpaRepository</code></li>
+<li>Update <code>MemberJpaEntity</code> with <code>role</code> column</li>
+<li>Update <code>MemberJpaRepository</code> with role query</li>
+<li>Create <code>HouseholdMapper</code></li>
+<li>Create <code>HouseholdRepositoryImpl</code></li>
+<li>
+<p>Update <code>MemberRepositoryImpl</code> with <code>save</code> method</p>
+</li>
+<li>
+<p><strong>API Layer</strong></p>
+</li>
+<li>Create <code>CreateHouseholdRequest</code>, <code>CreateHouseholdResponse</code></li>
+<li>
+<p>Create <code>HouseholdController</code></p>
+</li>
+<li>
+<p><strong>Tests</strong></p>
+</li>
+<li>Domain unit tests</li>
+<li>Application unit tests (mocked)</li>
+<li>Integration tests (DataJpaTest)</li>
+<li>API tests (SpringBootTest + MockMvc)</li>
+</ol>
+<hr />
+<h2 id="9-non-goals-explicitly-out-of-scope">9. Non-Goals (Explicitly Out of Scope)<a class="headerlink" href="#9-non-goals-explicitly-out-of-scope" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Authentication/authorization (separate Phase 1 issue)</li>
+<li>Invite members (separate issue)</li>
+<li>Household update/delete (future)</li>
+<li>Email uniqueness validation across households (requires auth)</li>
+<li>Audit logging beyond createdAt/updatedAt (future)</li>
+<li>Domain event outbox pattern (direct publication is sufficient for MVP)</li>
+</ul>
+<hr />
+<h2 id="10-open-questions">10. Open Questions<a class="headerlink" href="#10-open-questions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Email uniqueness:</strong> Should we enforce unique email per household at DB level? (Current V1 schema has <code>UNIQUE (household_id, email)</code> — this is correct for within-household uniqueness. Cross-household uniqueness requires auth.)</p>
+</li>
+<li>
+<p><strong>Member ID generation:</strong> Should the creator's member ID be deterministic (e.g., derived from email) or random UUID? Random UUID is simpler and matches existing pattern.</p>
+</li>
+<li>
+<p><strong>Household name uniqueness:</strong> Should household names be unique globally? No — different households can have same name.</p>
+</li>
+<li>
+<p><strong>Event publication:</strong> Use Spring's <code>ApplicationEventPublisher</code> (synchronous) or async? Synchronous is fine for MVP; async can be added later.</p>
+</li>
+<li>
+<p><strong>Creator email validation:</strong> Should we validate email format in domain or only in API? API validation (Jakarta <code>@Email</code>) is sufficient; domain doesn't need to know email format rules.</p>
+</li>
+</ol>
+<hr />
+<h2 id="11-files-to-createmodify">11. Files to Create/Modify<a class="headerlink" href="#11-files-to-createmodify" title="Permanent link">&para;</a></h2>
+<h3 id="new-files">New Files<a class="headerlink" href="#new-files" title="Permanent link">&para;</a></h3>
+<pre><code>src/main/java/com/sharedhousehold/domain/household/
+    Household.java
+    HouseholdId.java
+    MemberRole.java
+    HouseholdMember.java
+    HouseholdEvent.java
+    HouseholdCreated.java
+    MemberAdded.java
+
+src/main/java/com/sharedhousehold/application/port/household/
+    HouseholdRepository.java
+
+src/main/java/com/sharedhousehold/application/command/household/
+    CreateHouseholdCommand.java
+    CreateHouseholdResult.java
+
+src/main/java/com/sharedhousehold/application/exception/household/
+    InvalidHouseholdException.java
+
+src/main/java/com/sharedhousehold/application/usecase/household/
+    CreateHouseholdUseCase.java
+
+src/main/resources/db/migration/
+    V3__household_and_members.sql
+
+src/main/java/com/sharedhousehold/infrastructure/persistence/household/
+    HouseholdJpaEntity.java
+    HouseholdJpaRepository.java
+    HouseholdMapper.java
+    HouseholdRepositoryImpl.java
+
+src/main/java/com/sharedhousehold/api/household/
+    CreateHouseholdRequest.java
+    CreateHouseholdResponse.java
+    HouseholdController.java
+
+src/test/java/com/sharedhousehold/domain/household/
+    HouseholdTest.java
+    HouseholdIdTest.java
+    HouseholdMemberTest.java
+
+src/test/java/com/sharedhousehold/application/usecase/household/
+    CreateHouseholdUseCaseTest.java
+
+src/test/java/com/sharedhousehold/infrastructure/persistence/household/
+    HouseholdRepositoryImplTest.java
+
+src/test/java/com/sharedhousehold/api/household/
+    HouseholdControllerTest.java
+</code></pre>
+<h3 id="modified-files">Modified Files<a class="headerlink" href="#modified-files" title="Permanent link">&para;</a></h3>
+<pre><code>src/main/java/com/sharedhousehold/infrastructure/persistence/
+    MemberJpaEntity.java          // Add role field
+    MemberJpaRepository.java      // Add findByHouseholdIdAndRole
+    MemberRepositoryImpl.java     // Implement save(Member)
+
+src/main/java/com/sharedhousehold/application/port/
+    MemberRepository.java         // Add save(Member) method
+</code></pre>
+<hr />
+<h2 id="12-configuration-notes">12. Configuration Notes<a class="headerlink" href="#12-configuration-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>No new Spring configuration needed; existing <code>@EnableJpaRepositories</code> covers new repositories</li>
+<li>No new profiles or properties required</li>
+<li>Tests should use <code>@ActiveProfiles("test")</code> and <code>@Transactional</code> as per existing pattern</li>
+<li>API tests exclude <code>SecurityAutoConfiguration</code> (consistent with existing expense tests)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "search.suggest", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
