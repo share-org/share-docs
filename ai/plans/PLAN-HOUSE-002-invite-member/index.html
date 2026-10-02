@@ -1,0 +1,2263 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://share-org.github.io/share-docs/ai/plans/PLAN-HOUSE-002-invite-member/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Implementation Plan: HOUSE-002 Invite Member - SharedHousehold Docs & Reports</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#implementation-plan-house-002-invite-member" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SharedHousehold Docs &amp; Reports" class="md-header__button md-logo" aria-label="SharedHousehold Docs & Reports" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SharedHousehold Docs & Reports
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Implementation Plan: HOUSE-002 Invite Member
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SharedHousehold Docs &amp; Reports" class="md-nav__button md-logo" aria-label="SharedHousehold Docs & Reports" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SharedHousehold Docs & Reports
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisions & Reports
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Decisions & Reports
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../brainstorms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brainstorm index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../brainstorms/BR-001-agent-permission-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent permission architecture (BR-001)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../brainstorms/BR-002-expense-shares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expense shares, EXP-105 (BR-002)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Decision Records
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture Decision Records
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/decisions/ADR-001-agent-permission-restrictions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-001 agent permission restrictions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/decisions/ADR-002-autonomous-project-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-002 autonomous project manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/decisions/ADR-000-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/mvp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/done-criteria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Done criteria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/personas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../product/maquette/maquette/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maquette & prototype feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/definition-of-ready/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of ready
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/definition-of-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition of done
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/agent-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/example-feature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example feature
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/docs-publishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docs publishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI & Agents
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI & Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../autonomy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomy policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../autonomy-budget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Autonomy budget
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project state
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github-agent-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub agent commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mcp-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reports/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manager reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../runs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Run registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#affected-areas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Affected areas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Affected areas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#domain-comsharedhouseholddomainhousehold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain (com.sharedhousehold.domain.household)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-comsharedhouseholdapplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application (com.sharedhousehold.application)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-comsharedhouseholdinfrastructurepersistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure (com.sharedhousehold.infrastructure.persistence)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-comsharedhouseholdapihousehold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API (com.sharedhousehold.api.household)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persistence-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persistence / migrations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Persistence / migrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-table-invitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New table: invitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-dto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request DTO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-dto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response DTO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordered-implementation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ordered implementation steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ordered implementation steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-domain-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Domain layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-application-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Application layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-infrastructure-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Infrastructure layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-api-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. API layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tests
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit tests (domain)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit tests (application)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration tests (persistence)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-tests-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API tests (integration)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risks
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="implementation-plan-house-002-invite-member">Implementation Plan: HOUSE-002 Invite Member<a class="headerlink" href="#implementation-plan-house-002-invite-member" title="Permanent link">&para;</a></h1>
+<p><strong>Issue:</strong> #HOUSE-002
+<strong>Run:</strong> <code>run-2026-10-02-0022</code>
+<strong>Brainstorm:</strong> (none — straightforward implementation)
+<strong>Agent:</strong> <code>architect</code>
+<strong>Agent-Run:</strong> <code>run-2026-10-02-0022</code></p>
+<hr />
+<h2 id="affected-areas">Affected areas<a class="headerlink" href="#affected-areas" title="Permanent link">&para;</a></h2>
+<h3 id="domain-comsharedhouseholddomainhousehold">Domain (<code>com.sharedhousehold.domain.household</code>)<a class="headerlink" href="#domain-comsharedhouseholddomainhousehold" title="Permanent link">&para;</a></h3>
+<ul>
+<li>New <code>Invitation</code> aggregate/entity</li>
+<li>New <code>InvitationId</code> value object</li>
+<li>New <code>InvitationStatus</code> enum (PENDING, ACCEPTED, EXPIRED, CANCELLED)</li>
+<li>New <code>InvitationToken</code> value object</li>
+<li>New <code>InvitationCreated</code> domain event</li>
+</ul>
+<h3 id="application-comsharedhouseholdapplication">Application (<code>com.sharedhousehold.application</code>)<a class="headerlink" href="#application-comsharedhouseholdapplication" title="Permanent link">&para;</a></h3>
+<ul>
+<li>New command: <code>InviteMemberCommand</code></li>
+<li>New result: <code>InviteMemberResult</code></li>
+<li>New use case: <code>InviteMemberUseCase</code></li>
+<li>New port: <code>InvitationRepository</code></li>
+<li>New exceptions: <code>InvalidInvitationException</code>, <code>MemberAlreadyExistsException</code>, <code>CannotInviteSelfException</code></li>
+</ul>
+<h3 id="infrastructure-comsharedhouseholdinfrastructurepersistence">Infrastructure (<code>com.sharedhousehold.infrastructure.persistence</code>)<a class="headerlink" href="#infrastructure-comsharedhouseholdinfrastructurepersistence" title="Permanent link">&para;</a></h3>
+<ul>
+<li>New JPA entity: <code>InvitationJpaEntity</code></li>
+<li>New Spring Data repository: <code>InvitationJpaRepository</code></li>
+<li>New repository implementation: <code>InvitationRepositoryImpl</code></li>
+<li>Flyway migration: <code>V6__invitations.sql</code></li>
+<li>Configuration: wire <code>InviteMemberUseCase</code> in <code>ApplicationConfig</code></li>
+</ul>
+<h3 id="api-comsharedhouseholdapihousehold">API (<code>com.sharedhousehold.api.household</code>)<a class="headerlink" href="#api-comsharedhouseholdapihousehold" title="Permanent link">&para;</a></h3>
+<ul>
+<li>New controller endpoint: <code>POST /api/households/{householdId}/invitations</code></li>
+<li>Request DTO: <code>CreateInvitationRequest</code></li>
+<li>Response DTO: <code>CreateInvitationResponse</code></li>
+<li>Validation annotations</li>
+</ul>
+<hr />
+<h2 id="domain-changes">Domain changes<a class="headerlink" href="#domain-changes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>InvitationId</code></td>
+<td>UUID-based value object, similar to <code>HouseholdId</code></td>
+</tr>
+<tr>
+<td><code>InvitationToken</code></td>
+<td>Secure random token value object (URL-safe, ~32 chars)</td>
+</tr>
+<tr>
+<td><code>InvitationStatus</code></td>
+<td>Enum: PENDING, ACCEPTED, EXPIRED, CANCELLED</td>
+</tr>
+<tr>
+<td><code>Invitation</code></td>
+<td>Aggregate root with: id, householdId, invitedEmail, invitedBy (memberId), role, token, status, createdAt, expiresAt, acceptedAt</td>
+</tr>
+<tr>
+<td><code>InvitationCreated</code></td>
+<td>Domain event published when invitation is created</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Invariants</strong>:
+- Invitation token must be unique
+- Invitation expires after configurable TTL (default 7 days)
+- Cannot create invitation for email already a member of household
+- Cannot invite self (invitedBy memberId == invited member's userId, if user exists)
+- Only household members (any role) can create invitations</p>
+<hr />
+<h2 id="persistence-migrations">Persistence / migrations<a class="headerlink" href="#persistence-migrations" title="Permanent link">&para;</a></h2>
+<h3 id="new-table-invitations">New table: <code>invitations</code><a class="headerlink" href="#new-table-invitations" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE TABLE invitations (
+    id UUID PRIMARY KEY,
+    household_id UUID NOT NULL REFERENCES households(id) ON DELETE CASCADE,
+    invited_email VARCHAR(255) NOT NULL,
+    invited_by UUID NOT NULL REFERENCES members(id) ON DELETE RESTRICT,
+    role VARCHAR(20) NOT NULL DEFAULT 'MEMBER',
+    token VARCHAR(64) NOT NULL UNIQUE,
+    status VARCHAR(20) NOT NULL DEFAULT 'PENDING',
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    accepted_at TIMESTAMP WITH TIME ZONE
+);
+
+CREATE INDEX idx_invitations_household_id ON invitations (household_id);
+CREATE INDEX idx_invitations_token ON invitations (token);
+CREATE INDEX idx_invitations_status ON invitations (status);
+CREATE INDEX idx_invitations_invited_email ON invitations (invited_email);
+</code></pre>
+<h3 id="migration-file">Migration file<a class="headerlink" href="#migration-file" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>src/main/resources/db/migration/V6__invitations.sql</code></li>
+</ul>
+<h3 id="rollback">Rollback<a class="headerlink" href="#rollback" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>DROP TABLE invitations;</code> (safe, no dependent tables)</li>
+</ul>
+<hr />
+<h2 id="api-changes">API changes<a class="headerlink" href="#api-changes" title="Permanent link">&para;</a></h2>
+<h3 id="endpoint">Endpoint<a class="headerlink" href="#endpoint" title="Permanent link">&para;</a></h3>
+<pre><code>POST /api/households/{householdId}/invitations
+</code></pre>
+<h3 id="request-dto">Request DTO<a class="headerlink" href="#request-dto" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">public record CreateInvitationRequest(
+    @Email @NotBlank String invitedEmail,
+    @NotNull MemberRole role
+) {}
+</code></pre>
+<h3 id="response-dto">Response DTO<a class="headerlink" href="#response-dto" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">public record CreateInvitationResponse(
+    UUID invitationId,
+    UUID householdId,
+    String invitedEmail,
+    MemberRole role,
+    String token,           // only returned once for logging/testing
+    Instant expiresAt,
+    Instant createdAt
+) {}
+</code></pre>
+<h3 id="error-responses">Error responses<a class="headerlink" href="#error-responses" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>400</code> - Invalid request (validation)</li>
+<li><code>401</code> - Unauthorized</li>
+<li><code>403</code> - Requester not a member of household</li>
+<li><code>404</code> - Household not found</li>
+<li><code>409</code> - Email already a member / cannot invite self</li>
+</ul>
+<h3 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>householdId</code> path variable: valid UUID</li>
+<li><code>invitedEmail</code>: valid email format, not blank</li>
+<li><code>role</code>: MEMBER or ADMIN (not OWNER)</li>
+</ul>
+<hr />
+<h2 id="ordered-implementation-steps">Ordered implementation steps<a class="headerlink" href="#ordered-implementation-steps" title="Permanent link">&para;</a></h2>
+<h3 id="1-domain-layer">1. Domain layer<a class="headerlink" href="#1-domain-layer" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create <code>InvitationId</code> value object</li>
+<li>Create <code>InvitationToken</code> value object with secure generation</li>
+<li>Create <code>InvitationStatus</code> enum</li>
+<li>Create <code>Invitation</code> aggregate with factory methods and business logic</li>
+<li>Create <code>InvitationCreated</code> domain event</li>
+</ol>
+<h3 id="2-application-layer">2. Application layer<a class="headerlink" href="#2-application-layer" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create <code>InvitationRepository</code> port interface</li>
+<li>Create <code>InviteMemberCommand</code> and <code>InviteMemberResult</code> records</li>
+<li>Create exceptions: <code>InvalidInvitationException</code>, <code>MemberAlreadyExistsException</code>, <code>CannotInviteSelfException</code></li>
+<li>Implement <code>InviteMemberUseCase</code> with:</li>
+<li>Verify inviter is member of household (via <code>CurrentUser</code> + <code>MemberRepository</code>)</li>
+<li>Check invited email not already a member</li>
+<li>Check not inviting self (if user exists with that email)</li>
+<li>Generate token, set expiry (configurable TTL)</li>
+<li>Save invitation, publish <code>InvitationCreated</code> event</li>
+<li>Log/email token (placeholder: log for now)</li>
+</ol>
+<h3 id="3-infrastructure-layer">3. Infrastructure layer<a class="headerlink" href="#3-infrastructure-layer" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create <code>InvitationJpaEntity</code> with JPA annotations</li>
+<li>Create <code>InvitationJpaRepository</code> extending <code>JpaRepository</code></li>
+<li>Create <code>InvitationRepositoryImpl</code> implementing port</li>
+<li>Create Flyway migration <code>V6__invitations.sql</code></li>
+<li>Register <code>InviteMemberUseCase</code> bean in <code>ApplicationConfig</code></li>
+</ol>
+<h3 id="4-api-layer">4. API layer<a class="headerlink" href="#4-api-layer" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create <code>CreateInvitationRequest</code> and <code>CreateInvitationResponse</code> DTOs</li>
+<li>Add <code>inviteMember</code> endpoint to <code>HouseholdController</code> (or new <code>InvitationController</code>)</li>
+<li>Add validation and exception handlers</li>
+</ol>
+<h3 id="5-configuration">5. Configuration<a class="headerlink" href="#5-configuration" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Add <code>invitation.ttl.days</code> property (default: 7) in <code>application.yml</code></li>
+<li>Wire TTL into <code>InviteMemberUseCase</code> via <code>@Value</code></li>
+</ol>
+<h3 id="6-tests">6. Tests<a class="headerlink" href="#6-tests" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Unit tests for <code>Invitation</code> domain logic</li>
+<li>Unit tests for <code>InviteMemberUseCase</code> (mock repositories)</li>
+<li>Integration tests for <code>InvitationRepositoryImpl</code></li>
+<li>API tests for invitation endpoint (MockMvc)</li>
+</ol>
+<hr />
+<h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h2>
+<h3 id="unit-tests-domain">Unit tests (domain)<a class="headerlink" href="#unit-tests-domain" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>InvitationTokenTest</code>: token generation, uniqueness, URL-safety</li>
+<li><code>InvitationTest</code>: factory methods, expiry logic, status transitions, invariants</li>
+</ul>
+<h3 id="unit-tests-application">Unit tests (application)<a class="headerlink" href="#unit-tests-application" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>InviteMemberUseCaseTest</code>:</li>
+<li>Happy path: creates invitation, publishes event</li>
+<li>Rejects when inviter not household member (403)</li>
+<li>Rejects when invited email already member (409)</li>
+<li>Rejects when inviting self (409)</li>
+<li>Rejects invalid role (OWNER not allowed)</li>
+<li>Sets correct expiry based on config</li>
+</ul>
+<h3 id="integration-tests-persistence">Integration tests (persistence)<a class="headerlink" href="#integration-tests-persistence" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>InvitationRepositoryImplTest</code> (extends <code>BaseIntegrationTest</code>):</li>
+<li>Save and find by ID</li>
+<li>Find by token</li>
+<li>Find pending by household and email</li>
+<li>Status transitions</li>
+</ul>
+<h3 id="api-tests-integration">API tests (integration)<a class="headerlink" href="#api-tests-integration" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>InvitationControllerTest</code> (extends <code>BaseIntegrationTest</code>):</li>
+<li>POST <code>/api/households/{id}/invitations</code> returns 201 with valid response</li>
+<li>Returns 400 for invalid email/role</li>
+<li>Returns 401 without auth</li>
+<li>Returns 403 when requester not household member</li>
+<li>Returns 404 for non-existent household</li>
+<li>Returns 409 when email already member</li>
+<li>Returns 409 when inviting self</li>
+<li>Token only returned once (not in subsequent GETs if added later)</li>
+<li>Invitation persisted with correct expiry</li>
+</ul>
+<hr />
+<h2 id="open-questions">Open questions<a class="headerlink" href="#open-questions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Email sending</strong>: Issue says "email sent (or logged for now)". Should we implement a placeholder <code>EmailService</code> port/adapter now, or just log the token? Recommendation: log for now, add <code>EmailService</code> port in a follow-up.</p>
+</li>
+<li>
+<p><strong>Token exposure in response</strong>: The token is returned in the response for the inviter to share. Is this acceptable, or should the token only be sent via email? Current plan: return token in response (for testing/manual sharing), document that production should use email.</p>
+</li>
+<li>
+<p><strong>Invitation acceptance flow</strong>: Not in scope for this issue (Phase 1). Should we design the acceptance endpoint now? Recommendation: defer to separate issue (HOUSE-003).</p>
+</li>
+<li>
+<p><strong>Configurable TTL</strong>: Where to store default? <code>application.yml</code> with <code>invitation.ttl.days=7</code>. Any need for per-household configuration? Recommendation: global config for now.</p>
+</li>
+<li>
+<p><strong>Role validation</strong>: Should ADMIN role be allowed? Issue says MEMBER/ADMIN. OWNER should be rejected. Confirm this is correct.</p>
+</li>
+<li>
+<p><strong>Duplicate invitation handling</strong>: If an invitation already exists for same email+household and is PENDING, should we return existing or create new? Recommendation: return 409 conflict, let inviter cancel first.</p>
+</li>
+<li>
+<p><strong>Household isolation verification</strong>: The use case must verify the authenticated user (via <code>CurrentUser</code>) is a member of the target household. This requires joining <code>User</code> → <code>Member</code> (by email?) or storing userId on Member. Currently <code>Member</code> doesn't have <code>userId</code>. How to link?</p>
+</li>
+<li>Option A: Add <code>userId</code> to <code>Member</code> (nullable, for registered users)</li>
+<li>Option B: Look up member by email matching authenticated user's email</li>
+<li>Recommendation: Option B for now (simpler, matches existing pattern where member email = user email). We'll need to add <code>findByHouseholdIdAndEmail</code> to <code>MemberRepository</code>/<code>MemberJpaRepository</code>.</li>
+</ol>
+<hr />
+<h2 id="risks">Risks<a class="headerlink" href="#risks" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Member-user linkage missing</td>
+<td>Cannot verify inviter is household member</td>
+<td>Add <code>findByHouseholdIdAndEmail</code> to MemberRepository; use CurrentUser's email via UserRepository</td>
+</tr>
+<tr>
+<td>Token collision</td>
+<td>Security issue</td>
+<td>Use secure random (256-bit), URL-safe base64, check uniqueness in DB</td>
+</tr>
+<tr>
+<td>Invitation enumeration</td>
+<td>Privacy leak</td>
+<td>Token is 32+ chars, unguessable; no list endpoint for non-members</td>
+</tr>
+<tr>
+<td>Expired invitations cleanup</td>
+<td>Data growth</td>
+<td>Add scheduled cleanup job later; not critical for MVP</td>
+</tr>
+<tr>
+<td>Race condition: duplicate invitation</td>
+<td>Two invites sent simultaneously</td>
+<td>DB unique constraint on (household_id, invited_email, status='PENDING') or handle in use case with optimistic locking</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "search.suggest", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
